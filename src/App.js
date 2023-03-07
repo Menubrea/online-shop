@@ -6,6 +6,7 @@ import { useReducer, useEffect } from 'react';
 import { CartReducer, initialState } from './reduces/shoppingCartReducer';
 import { Home } from './components/Home';
 import CssBaseline from '@mui/material/CssBaseline';
+import ProductPage from './components/Product';
 
 const theme = createTheme({
   palette: {
@@ -68,6 +69,7 @@ function App() {
               index
               element={<Home data={data} state={state} dispatch={dispatch} />}
             />
+            <Route path='/product/:id' element={<ProductPage />} />
           </Route>
         </Routes>
       </>

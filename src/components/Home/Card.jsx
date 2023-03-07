@@ -16,6 +16,11 @@ import Price from '../Price';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 
+const ResetLink = styled(Link)`
+  all: unset;
+  display: block;
+`;
+
 const StyledCard = styled(Card)`
   --size: 268px;
   height: var(--size);
@@ -60,81 +65,86 @@ export default function ProductCard({ data, state, dispatch }) {
       {data.map((product) => (
         <StyledCard key={product.id} component='li'>
           <Box sx={{ position: 'relative' }} id='cardContent'>
-            <CardContent
-              sx={{
-                padding: 1,
-                backgroundColor: 'white.main',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Typography>
-                {product.tags &&
-                  product.tags.map((tag) => (
-                    <Box
-                      component='span'
-                      sx={{
-                        display: 'inline-flex',
-                        marginRight: 0.4,
-                        backgroundColor: 'white.light',
-                        paddingX: 0.2,
-                        borderRadius: 1,
-                      }}
-                    >
-                      [{tag}]
-                    </Box>
-                  ))}
-              </Typography>
-              {product.rating !== 0 ? (
-                <Rating
-                  sx={{ color: 'primary.main' }}
-                  name='read-only'
-                  value={product.rating}
-                  precision={0.5}
-                  readOnly
-                  icon={<FavoriteIcon fontSize='inherit' />}
-                  emptyIcon={
-                    <FavoriteBorderIcon
-                      sx={{ color: 'primary.main' }}
-                      fontSize='inherit'
-                    />
-                  }
-                />
-              ) : (
-                <Box
+            <ResetLink to={`/product/${product.id}`}>
+              <CardContent
+                sx={{
+                  padding: 1,
+                  backgroundColor: 'white.main',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <Typography>
+                  {product.tags &&
+                    product.tags.map((tag) => (
+                      <Box
+                        component='span'
+                        sx={{
+                          display: 'inline-flex',
+                          marginRight: 0.4,
+                          backgroundColor: 'white.light',
+                          paddingX: 0.2,
+                          borderRadius: 1,
+                        }}
+                      >
+                        [{tag}]
+                      </Box>
+                    ))}
+                </Typography>
+                {product.rating !== 0 ? (
+                  <Rating
+                    sx={{ color: 'primary.main' }}
+                    name='read-only'
+                    value={product.rating}
+                    precision={0.5}
+                    readOnly
+                    icon={<FavoriteIcon fontSize='inherit' />}
+                    emptyIcon={
+                      <FavoriteBorderIcon
+                        sx={{ color: 'primary.main' }}
+                        fontSize='inherit'
+                      />
+                    }
+                  />
+                ) : (
+                  <Box
+                    sx={{
+                      backgroundColor: 'white.main',
+                      color: 'white',
+                      padding: 0,
+                    }}
+                  >
+                    No rating
+                  </Box>
+                )}
+              </CardContent>
+              <Box sx={{ position: 'relative' }}>
+                <CardMedia
                   sx={{
-                    backgroundColor: 'white.main',
-                    color: 'white',
-                    padding: 0,
+                    height: 180,
+                    objectFit: 'cover',
                   }}
-                >
-                  No rating
-                </Box>
-              )}
-            </CardContent>
-            <Box sx={{ position: 'relative' }}>
-              <CardMedia
-                sx={{ height: 180, objectFit: 'cover' }}
-                image={product.imageUrl}
-                title={product.title}
-              />
-              <Price product={product} />
-            </Box>
+                  image={product.imageUrl}
+                  title={product.title}
+                />
+                <Price product={product} />
+              </Box>
 
-            <CardHeader
-              title={product.title}
-              sx={{ margin: 0, paddingY: 1 }}
-              titleTypographyProps={{
-                fontFamily: 'arbotek',
-                fontWeight: 900,
-                color: 'black.light',
-              }}
-            />
-            <Divider />
-            <CardContent>
-              <Typography variant='body2'>{product.description}</Typography>
-            </CardContent>
+              <CardHeader
+                title={product.title}
+                sx={{ margin: 0, paddingY: 1 }}
+                titleTypographyProps={{
+                  fontFamily: 'arbotek',
+                  fontWeight: 900,
+                  color: 'black.light',
+                }}
+              />
+              <Divider />
+              <CardContent>
+                <Typography variant='body2'>{product.description}</Typography>
+              </CardContent>
+            </ResetLink>
             <CardActions
               fullWidth
               sx={{ position: 'absolute', bottom: 0, width: '100%' }}
@@ -148,6 +158,15 @@ export default function ProductCard({ data, state, dispatch }) {
                 }
               >
                 Add to Cart
+              </Button>
+              <Button
+                fullWidth
+                variant='contained'
+                sx={{ backgroundColor: 'primary.dark', color: 'white.main' }}
+              >
+                <ResetLink to={`/product/${product.id}`}>
+                  Go to Product
+                </ResetLink>
               </Button>
             </CardActions>
           </Box>
