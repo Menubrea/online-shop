@@ -1,7 +1,5 @@
-import { Card, Typography, CardMedia, CardContent, CardHeader, Box, Divider, Rating, CardActions, Button, styled } from '@mui/material';
+import { Card, Typography, CardContent, CardHeader, Box, Divider, CardActions, Button, styled } from '@mui/material';
 import Image from 'mui-image';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Price from '../Price';
 import { Link } from 'react-router-dom';
 import { Sale } from '../Price';

@@ -44,7 +44,7 @@ const theme = createTheme({
 const url = 'https://api.noroff.dev/api/v1/online-shop/';
 
 function App() {
-  const { data, isLoading, isError } = ApiHook(url);
+  const { data, isLoading } = ApiHook(url);
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
   useEffect(() => {

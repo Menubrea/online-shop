@@ -1,4 +1,4 @@
-import { IconButton, Card, CardContent, CardMedia, Container, TextField, Typography, styled, Box, CardHeader, Divider } from '@mui/material';
+import { IconButton, Card, CardContent, CardMedia, Container, TextField, Typography, styled, Box, Divider } from '@mui/material';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import Price from '../Price';
