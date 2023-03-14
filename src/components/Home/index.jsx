@@ -33,7 +33,7 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
       <Hero />
       <Container
         sx={{
-          display: 'flex',
+          display: { sm: 'flex', xs: 'block' },
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: 2,

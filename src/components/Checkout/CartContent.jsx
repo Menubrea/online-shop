@@ -24,7 +24,9 @@ export function CartContent({ state, dispatch }) {
                 {product.title}
               </Typography>
             </StyledLink>
-            <Typography variant='body2'>{product.description}</Typography>
+            <Typography sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }} variant='body2'>
+              {product.description}
+            </Typography>
           </Box>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

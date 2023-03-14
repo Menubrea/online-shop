@@ -20,8 +20,8 @@ export default function Hero() {
   const [isShown, setIsShown] = useState(true);
 
   function DisplayHero(boolean) {
-    setIsShown(boolean);
     sessionStorage.setItem('isShown', String(boolean));
+    return setIsShown(boolean);
   }
 
   useEffect(() => {

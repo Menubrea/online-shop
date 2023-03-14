@@ -38,11 +38,11 @@ export default function ProductPage({ data, state, dispatch }) {
               md: 'repeat(3, 1fr)',
             },
           }}>
-          <Box sx={{ gridColumn: '1 / 3', height: 'max-content', position: 'relative' }}>
+          <Box sx={{ gridColumn: { md: '1 / 3', xs: '1 / 4' }, height: 'max-content', position: 'relative' }}>
             <ProductDetails data={filterProduct} />
             {filterProduct.discountedPrice !== filterProduct.price && <Sale product={filterProduct} />}
           </Box>
-          <Box sx={{ padding: 2, border: 2, borderStyle: 'solid', borderColor: 'black.main' }}>
+          <Box sx={{ gridColumn: { md: '3 / 4', xs: '1 / 4' }, padding: 2, border: 2, borderStyle: 'solid', borderColor: 'black.main' }}>
             <AddToCart data={filterProduct} dispatch={dispatch} state={state} />
             <Reviews data={filterProduct} />
             <StoreInformation />
