@@ -19,11 +19,7 @@ export function CartReducer(state, action) {
         // The data does exist so we increase the quantity
         // We do not want to mutate quantity so we are creating a new array with
         // quantity incremented.
-        cart = [
-          ...cart.slice(0, dataIndex),
-          { ...cart[dataIndex], quantity: cart[dataIndex].quantity + 1 },
-          ...cart.slice(dataIndex + 1),
-        ];
+        cart = [...cart.slice(0, dataIndex), { ...cart[dataIndex], quantity: cart[dataIndex].quantity + 1 }, ...cart.slice(dataIndex + 1)];
       }
       // Set the new total so we don't have to keep calculating it
       newTotal = cart.reduce((currentTotal, data) => {
