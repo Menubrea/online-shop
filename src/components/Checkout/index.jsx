@@ -1,13 +1,58 @@
-import { Box, Container, Typography, Button, styled, Divider, IconButton } from '@mui/material';
+import { Box, Container, Typography, Button, styled, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Image from 'mui-image';
 import { StoreInformation } from '../StoreInformation';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import { CartContent } from './CartContent';
+import { EmptyCart } from './EmptyCart';
+import { CartPurchase } from './CartPurchase';
 
 const StyledLink = styled(Link)`
   all: unset;
   display: 'block';
+`;
+
+const StyledBox = styled(Box)`
+  animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
+
+  article:nth-child(2) {
+    animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
+    animation-delay: 0.1s;
+  }
+  article:nth-child(3) {
+    animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
+    animation-delay: 0.2s;
+  }
+  article:nth-child(4) {
+    animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
+    animation-delay: 0.3s;
+  }
+  article:nth-child(5) {
+    animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
+    animation-delay: 0.4s;
+  }
+  article:nth-child(6) {
+    animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
+    animation-delay: 0.5s;
+  }
+  article:nth-child(7) {
+    animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
+    animation-delay: 0.6s;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(-50%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    animation: 0ms !important;
+  }
 `;
 
 export function Checkout({ state, dispatch }) {
@@ -24,7 +69,7 @@ export function Checkout({ state, dispatch }) {
             md: 'repeat(3, 1fr)',
           },
         }}>
-        <Box sx={{ gridColumn: '1 / 3', height: 'max-content' }}>
+        <Box sx={{ gridColumn: { xs: '1 / 4', md: '1 / 3' }, height: 'max-content' }}>
           {state.cart.length > 0 && (
             <Box sx={{ marginBottom: 1 }}>
               <Typography variant='h4' component='h1' sx={{ textAlign: 'left', fontFamily: 'arbotek', fontWeight: 900, color: 'secondary.dark' }}>
@@ -33,69 +78,21 @@ export function Checkout({ state, dispatch }) {
               <Divider />
             </Box>
           )}
-          {state.cart.length > 0 ? (
-            state.cart.map((product) => {
-              return (
-                <Box key={product.id} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: 1 }}>
-                  <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-                    <Image src={product.imageUrl} title={product.title} height={60} width={60} sx={{ borderRadius: 100 }} />
-                    <Box>
-                      <Typography variant='body1' component='h2'>
-                        {product.title}
-                      </Typography>
-                      <Typography variant='body2'>{product.description}</Typography>
-                    </Box>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <IconButton onClick={() => dispatch({ type: 'addProduct', payload: product })} variant='contained'>
-                      <AddCircleIcon />
-                    </IconButton>
-                    <Typography variant='body2'>{product.quantity}</Typography>
-                    <IconButton onClick={() => dispatch({ type: 'removeProduct', payload: product })} variant='contained'>
-                      <RemoveCircleIcon />
-                    </IconButton>
-                  </Box>
-                </Box>
-              );
-            })
-          ) : (
-            <Box>
-              <Typography sx={{ textAlign: 'center' }} variant='body1' component='p'>
-                Your Cart is Empty.
-              </Typography>
-
-              <StyledLink to='/'>
-                {' '}
-                <Button sx={{ marginTop: 1 }} fullWidth variant='contained' color='secondary'>
-                  Go back to products
-                </Button>
-              </StyledLink>
+          <StyledBox>
+            {/* Display Cart content if cart has content, else show content for empty cart */}
+            {state.cart.length > 0 ? <CartContent state={state} dispatch={dispatch} /> : <EmptyCart />}
+          </StyledBox>
+        </Box>
+        {/* Container for Price, total and purchase interaction*/}
+        <Box sx={{ backgroundColor: 'white.main', padding: 2, height: 'fit-content', gridColumn: { xs: '1 / 4', md: '3 / 4' } }}>
+          {state.cart.length > 0 && (
+            <Box sx={{ marginBottom: 1 }}>
+              <Typography>You're about to purchase:</Typography>
+              <Divider />
             </Box>
           )}
-        </Box>
-        <Box sx={{ backgroundColor: 'white.main', padding: 2, height: 'fit-content' }}>
-          {state.cart.length > 0 ? (
-            state.cart.map((product) => {
-              return (
-                <Box key={product.id} sx={{ display: 'flex', justifyContent: 'space-between ' }}>
-                  <Typography variant='body2' component='span'>
-                    {product.title}{' '}
-                  </Typography>
-                  <Box>
-                    <Typography variant='body2' component='span'>
-                      {product.discountedPrice}
-                    </Typography>
-                    <Typography variant='body2' component='span'>
-                      {' '}
-                      x {product.quantity}
-                    </Typography>
-                  </Box>
-                </Box>
-              );
-            })
-          ) : (
-            <Typography variant='body1'>Cart is empty</Typography>
-          )}
+          {/* Display product name, price and quantity, else display empty cart */}
+          {state.cart.length > 0 ? <CartPurchase state={state} /> : <Typography variant='body1'>Cart is empty</Typography>}
           <Divider />
           <Box sx={{ display: 'flex', justifyContent: 'space-between ', marginTop: 1 }}>
             <Typography>Total:</Typography>
