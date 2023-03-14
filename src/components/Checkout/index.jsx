@@ -20,7 +20,7 @@ export function Checkout({ state, dispatch }) {
           display: 'grid',
           gap: 2,
           gridTemplateColumns: {
-            sm: 'repeat(1, 1fr)',
+            xs: 'repeat(1, 1fr)',
             md: 'repeat(3, 1fr)',
           },
         }}>
@@ -36,20 +36,21 @@ export function Checkout({ state, dispatch }) {
           {state.cart.length > 0 ? (
             state.cart.map((product) => {
               return (
-                <Box key={product.id} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <Box sx={{ display: 'flex' }}>
-                    <Image src={product.imageUrl} title={product.title} height={80} width={80} />
-                    <Box sx={{ padding: 2 }}>
-                      <Typography variant='h6' component='h2'>
+                <Box key={product.id} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: 1 }}>
+                  <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+                    <Image src={product.imageUrl} title={product.title} height={60} width={60} sx={{ borderRadius: 100 }} />
+                    <Box>
+                      <Typography variant='body1' component='h2'>
                         {product.title}
                       </Typography>
-                      <Typography>{product.description}</Typography>
+                      <Typography variant='body2'>{product.description}</Typography>
                     </Box>
                   </Box>
-                  <Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <IconButton onClick={() => dispatch({ type: 'addProduct', payload: product })} variant='contained'>
                       <AddCircleIcon />
                     </IconButton>
+                    <Typography variant='body2'>{product.quantity}</Typography>
                     <IconButton onClick={() => dispatch({ type: 'removeProduct', payload: product })} variant='contained'>
                       <RemoveCircleIcon />
                     </IconButton>
@@ -85,6 +86,7 @@ export function Checkout({ state, dispatch }) {
                       {product.discountedPrice}
                     </Typography>
                     <Typography variant='body2' component='span'>
+                      {' '}
                       x {product.quantity}
                     </Typography>
                   </Box>
