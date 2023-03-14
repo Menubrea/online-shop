@@ -4,46 +4,25 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Price from '../Price';
 import { Link } from 'react-router-dom';
+import { Sale } from '../Price';
 
 const LinkWrapper = styled(Link)`
   all: unset;
-  display: block;
+  width: 100%;
 `;
 
 const StyledCard = styled(Card)`
-  --size: 268px;
-  --time: 400ms;
-  height: var(--size);
+  background: rgb(255, 240, 235);
+  background: linear-gradient(10deg, rgba(255, 240, 235, 0.3) 0%, rgba(249, 249, 249, 0.3) 100%);
   cursor: pointer;
   border-radius: 0;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
-  transition: all var(--time) ease-in-out;
 
   #cardContent {
-    transition: all var(--time) ease-in-out;
-    transition-delay: calc(var(--time) / 2);
-
-    height: calc(var(--size) + 220px);
-    position: relative;
-    :before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-color: #f1f1f1;
-      transform: translateY(calc(var(--size) * 2));
-      transition: all var(--time) ease-in-out;
-      z-index: -100;
-    }
+    height: 450px;
   }
   :hover {
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
-    #cardContent {
-      transform: translateY(-220px);
-      :before {
-        transform: translateY(var(--size));
-        transition-delay: calc(var(--time) / 2);
-      }
-    }
   }
 `;
 
@@ -77,30 +56,11 @@ export default function ProductCard({ data, dispatch, headerElement }) {
                       </Box>
                     ))}
                 </Typography>
-                {product.rating !== 0 ? (
-                  <Rating
-                    sx={{ color: 'primary.main' }}
-                    name='read-only'
-                    value={product.rating}
-                    precision={0.5}
-                    readOnly
-                    icon={<FavoriteIcon fontSize='inherit' />}
-                    emptyIcon={<FavoriteBorderIcon sx={{ color: 'primary.main' }} fontSize='inherit' />}
-                  />
-                ) : (
-                  <Box
-                    sx={{
-                      backgroundColor: 'white.main',
-                      color: 'white',
-                      padding: 0,
-                    }}>
-                    No rating
-                  </Box>
-                )}
+                <Price product={product} />
               </CardContent>
               <Box sx={{ position: 'relative' }}>
                 <Image src={product.imageUrl} height={180} duration={1000} />
-                <Price product={product} position='absolute' />
+                {product.discountedPrice !== product.price && <Sale product={product} />}
               </Box>
 
               <Box display={'flex'}>
@@ -120,7 +80,7 @@ export default function ProductCard({ data, dispatch, headerElement }) {
                 <Typography variant='body2'>{product.description}</Typography>
               </CardContent>
             </LinkWrapper>
-            <CardActions fullWidth sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
+            <CardActions fullWidth sx={{ position: 'absolute', bottom: 0, width: '100%', display: 'flex', gap: 1 }}>
               <Button
                 fullWidth
                 sx={{ backgroundColor: 'black.light', color: 'white.main' }}
@@ -128,9 +88,12 @@ export default function ProductCard({ data, dispatch, headerElement }) {
                 onClick={() => dispatch({ type: 'addProduct', payload: product })}>
                 Add to Cart
               </Button>
-              <Button fullWidth variant='contained' sx={{ backgroundColor: 'primary.dark', color: 'white.main' }}>
-                <LinkWrapper to={`/product/${product.id}`}>Go to Product</LinkWrapper>
-              </Button>
+
+              <LinkWrapper to={`/product/${product.id}`}>
+                <Button fullWidth variant='contained' color='primary'>
+                  To Product
+                </Button>
+              </LinkWrapper>
             </CardActions>
           </Box>
         </StyledCard>
