@@ -4,7 +4,6 @@ import { Box, Container, styled, Typography, Divider, Button } from '@mui/materi
 import { Link } from 'react-router-dom';
 import loading from '../../assets/loading.gif';
 import checkmark from '../../assets/checkmark.gif';
-import hero from '../../assets/hero.png';
 
 const StyledMain = styled(Box)`
   display: grid;
