@@ -9,6 +9,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import ProductPage from './components/Product';
 import { Checkout } from './components/Checkout';
 import { CheckoutSuccess } from './components/CheckoutSuccess';
+import { Container } from '@mui/material';
+import Image from 'mui-image';
+import loading from '../src/assets/loading.gif';
 
 const theme = createTheme({
   palette: {
@@ -57,6 +60,14 @@ function App() {
       return dispatch({ type: 'storedCart', payload: storedData });
     }
   }, []);
+
+  if (isLoading) {
+    return (
+      <Container sx={{ minHeight: '100vh', display: 'grid', alignItems: 'center', justifyContent: 'center' }}>
+        <Image src={loading} height={500} width={500} />
+      </Container>
+    );
+  }
 
   return (
     <ThemeProvider theme={theme}>
