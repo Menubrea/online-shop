@@ -1,29 +1,42 @@
 import { Box, styled, Typography } from '@mui/material';
 
 const StyledBox = styled(Box)`
-  backdrop-filter: blur(10px);
-  background-color: #ffffff87;
-  padding: 0 0.5em;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
 `;
 
-export default function Price({ product, position }) {
-  // Calculate and stringify the difference to allow the use of string methods.
+export function Sale({ product }) {
   let difference;
   difference = product.price - product.discountedPrice;
   let stringedDifference = difference.toString();
 
   return (
-    <StyledBox
+    <Box
       sx={{
-        position: { position },
-        bottom: 0,
+        position: 'absolute',
+        top: 8,
+        left: 8,
+        padding: '0.2em .5em',
+        backgroundColor: '#595959b1',
+        color: '#fff',
+        backdropFilter: 'blur(10px)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}>
+      <Typography sx={{ fontWeight: 700 }} variant='body1' component='p'>
+        On Sale
+      </Typography>{' '}
+      <Typography variant='body2' component='p'>
+        You save {stringedDifference.split('.')[0]},-
+      </Typography>{' '}
+    </Box>
+  );
+}
+
+export default function Price({ product }) {
+  return (
+    <StyledBox>
       {/* Display this if discounted and price does not match */}
       {product.discountedPrice !== product.price ? (
         <>
@@ -35,15 +48,12 @@ export default function Price({ product, position }) {
               {product.discountedPrice},-
             </Typography>{' '}
           </Box>
-          <Typography sx={{ fontWeight: 700 }} variant='body1' component='p'>
-            You save {stringedDifference.split('.')[0]},-
-          </Typography>{' '}
         </>
       ) : (
         <Box>
           <Typography variant='body1' component='div'>
             {/* Else This */}
-            {product.price} kr
+            {product.price},-
           </Typography>
         </Box>
       )}
