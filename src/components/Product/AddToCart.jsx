@@ -23,7 +23,7 @@ export function AddToCart({ data, dispatch, state }) {
       {/* Display this if cart is not empty */}
       {state.cart.length > 0 && (
         <StyledLink to='/checkout'>
-          <Button variant='outlined' sx={{ borderRadius: 0 }} fullWidth color='black'>
+          <Button variant='contained' sx={{ borderRadius: 0 }} fullWidth color='white'>
             To Checkout
           </Button>
         </StyledLink>
