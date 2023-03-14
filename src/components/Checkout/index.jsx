@@ -100,7 +100,7 @@ export function Checkout({ state, dispatch }) {
           </Box>
 
           {state.cart.length > 0 && (
-            <StyledLink to='/purchase'>
+            <StyledLink to='/checkoutsuccess'>
               <Button fullWidth variant='contained'>
                 Purchase
               </Button>

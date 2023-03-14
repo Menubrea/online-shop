@@ -8,6 +8,7 @@ import { Home } from './components/Home';
 import CssBaseline from '@mui/material/CssBaseline';
 import ProductPage from './components/Product';
 import { Checkout } from './components/Checkout';
+import { CheckoutSuccess } from './components/CheckoutSuccess';
 
 const theme = createTheme({
   palette: {
@@ -66,6 +67,7 @@ function App() {
             <Route index element={<Home data={data} state={state} dispatch={dispatch} />} />
             <Route path='/product/:id' element={<ProductPage data={data} state={state} dispatch={dispatch} />} />
             <Route path='/checkout' element={<Checkout data={data} state={state} dispatch={dispatch} />} />
+            <Route path='/checkoutSuccess' element={<CheckoutSuccess dispatch={dispatch} />} />
           </Route>
         </Routes>
       </>
