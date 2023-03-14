@@ -10,7 +10,10 @@ function HideOnScroll(props) {
   });
 
   return (
-    <Slide appear={false} direction='down' in={!trigger}>
+    <Slide
+      appear={false}
+      direction='down'
+      in={!trigger}>
       {children}
     </Slide>
   );
@@ -22,8 +25,7 @@ export function Header(props) {
       <HideOnScroll {...props}>
         <AppBar
           component='header'
-          sx={{ backgroundColor: 'white.main', position: 'sticky' }}
-        >
+          sx={{ backgroundColor: 'white.main', position: 'sticky' }}>
           <Toolbar sx={{ justifyContent: 'space-between' }}>
             <Typography
               variant='h6'
@@ -38,8 +40,7 @@ export function Header(props) {
                 backgroundColor: 'black.light',
                 paddingX: 1,
                 paddingBottom: 1,
-              }}
-            >
+              }}>
               Re:mote
             </Typography>
             <Nav />
