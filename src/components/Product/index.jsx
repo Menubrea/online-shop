@@ -6,6 +6,7 @@ import { Products } from '../Home/Products';
 import { StoreInformation } from '../StoreInformation';
 import { AddToCart } from './AddToCart';
 import { ProductDetails } from './ProductDetails';
+import { Sale } from '../Price';
 
 export default function ProductPage({ data, state, dispatch }) {
   const [filterProduct, setFilterProduct] = useState([]);
@@ -37,8 +38,9 @@ export default function ProductPage({ data, state, dispatch }) {
               md: 'repeat(3, 1fr)',
             },
           }}>
-          <Box sx={{ gridColumn: '1 / 3', height: 'max-content' }}>
+          <Box sx={{ gridColumn: '1 / 3', height: 'max-content', position: 'relative' }}>
             <ProductDetails data={filterProduct} />
+            {filterProduct.discountedPrice !== filterProduct.price && <Sale product={filterProduct} />}
           </Box>
           <Box sx={{ padding: 2, border: 2, borderStyle: 'solid', borderColor: 'black.main' }}>
             <AddToCart data={filterProduct} dispatch={dispatch} state={state} />
