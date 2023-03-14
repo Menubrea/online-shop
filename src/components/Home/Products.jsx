@@ -19,10 +19,10 @@ const MainGrid = styled(Container)`
   }
 `;
 
-export function Products({ data, state, dispatch }) {
+export function Products({ data, state, dispatch, headerElement }) {
   return (
     <MainGrid component='ul'>
-      <ProductCard data={data} state={state} dispatch={dispatch} />
+      <ProductCard data={data} state={state} dispatch={dispatch} headerElement={headerElement} />
     </MainGrid>
   );
 }
