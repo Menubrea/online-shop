@@ -1,10 +1,4 @@
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  styled,
-} from '@mui/material';
+import { List, ListItem, ListItemButton, ListItemText, styled } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export const NewLink = styled(Link)`
