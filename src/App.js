@@ -7,6 +7,7 @@ import { CartReducer, initialState } from './reduces/shoppingCartReducer';
 import { Home } from './components/Home';
 import CssBaseline from '@mui/material/CssBaseline';
 import ProductPage from './components/Product';
+import { Checkout } from './components/Checkout';
 
 const theme = createTheme({
   palette: {
@@ -61,15 +62,10 @@ function App() {
       <CssBaseline />
       <>
         <Routes>
-          <Route
-            path='/'
-            element={<Layout state={state} dispatch={dispatch} />}
-          >
-            <Route
-              index
-              element={<Home data={data} state={state} dispatch={dispatch} />}
-            />
-            <Route path='/product/:id' element={<ProductPage />} />
+          <Route path='/' element={<Layout state={state} dispatch={dispatch} />}>
+            <Route index element={<Home data={data} state={state} dispatch={dispatch} />} />
+            <Route path='/product/:id' element={<ProductPage data={data} state={state} dispatch={dispatch} />} />
+            <Route path='/checkout' element={<Checkout data={data} state={state} dispatch={dispatch} />} />
           </Route>
         </Routes>
       </>
