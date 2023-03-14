@@ -1,12 +1,4 @@
-import {
-  Container,
-  FormControl,
-  InputLabel,
-  NativeSelect,
-  Box,
-  Typography,
-  option,
-} from '@mui/material';
+import { Container, FormControl, InputLabel, Select, Box, Typography, MenuItem } from '@mui/material';
 import { Products } from './Products';
 import { Search } from './Search';
 import { useState, useEffect } from 'react';
@@ -46,72 +38,55 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
           justifyContent: 'space-between',
           gap: 2,
           marginTop: 2,
-        }}
-      >
+        }}>
         <Box sx={{ minWidth: 150, marginTop: 2 }}>
           <FormControl variant='standard' fullWidth>
             <InputLabel variant='standard' htmlFor='uncontrolled-native'>
               Category
             </InputLabel>
-            <NativeSelect
-              defaultValue='All'
-              inputProps={{
-                name: 'Category',
-                id: 'uncontrolled-native',
-              }}
-            >
-              <option onClick={Reset} value='all'>
+            <Select defaultValue='all' label='Category'>
+              <MenuItem onClick={Reset} value='all'>
                 All
-              </option>
-              <option
-                onClick={() => FilterTag('Electronics')}
-                value='electronics'
-              >
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Electronics')} value='electronics'>
                 Electronics
-              </option>
-              <option onClick={() => FilterTag('Shoes')} value='shoes'>
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Shoes')} value='shoes'>
                 Shoes
-              </option>
-              <option
-                onClick={() => FilterTag('Headphones')}
-                value='headphones'
-              >
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Headphones')} value='headphones'>
                 Headphones
-              </option>
-              <option onClick={() => FilterTag('Fashion')} value='fashion'>
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Fashion')} value='fashion'>
                 Fashion
-              </option>
-              <option onClick={() => FilterTag('Beauty')} value='beauty'>
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Beauty')} value='beauty'>
                 Beauty
-              </option>
-              <option onClick={() => FilterTag('Perfume')} value='perfume'>
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Perfume')} value='perfume'>
                 Perfume
-              </option>
-              <option onClick={() => FilterTag('Bags')} value='bags'>
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Bags')} value='bags'>
                 Bags
-              </option>
-              <option onClick={() => FilterTag('Watch')} value='watch'>
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Watch')} value='watch'>
                 Watches
-              </option>
-              <option
-                onClick={() => FilterTag('Accessories')}
-                value='accessories'
-              >
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Accessories')} value='accessories'>
                 Accessories
-              </option>
-              <option onClick={() => FilterTag('Shoes')} value='shoes'>
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Shoes')} value='shoes'>
                 Shoes
-              </option>
-              <option onClick={() => FilterTag('Skin care')} value='skin care'>
+              </MenuItem>
+              <MenuItem onClick={() => FilterTag('Skin care')} value='skin care'>
                 Skin Care
-              </option>
-            </NativeSelect>
+              </MenuItem>
+            </Select>
           </FormControl>
         </Box>
         <Search data={data} />
       </Container>
-
-      <Container>
+      <Box component='section'>
         <Typography
           variant='h5'
           component='h1'
@@ -126,18 +101,11 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
             paddingX: 2,
             paddingBottom: 0.8,
             marginX: 'auto',
-          }}
-        >
+          }}>
           {headline}
         </Typography>
-      </Container>
-      <Products
-        data={filterData}
-        isError={isError}
-        isLoading={isLoading}
-        state={state}
-        dispatch={dispatch}
-      />
+        <Products data={filterData} isError={isError} isLoading={isLoading} state={state} dispatch={dispatch} headerElement='h2' />
+      </Box>
     </Box>
   );
 }
