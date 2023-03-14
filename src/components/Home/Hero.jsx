@@ -4,7 +4,7 @@ import hero from '../../assets/hero.png';
 export default function Hero() {
   return (
     <>
-      <Image src={hero} height='fit-content' maxHeight={500} fit='contain' />
+      <Image src={hero} height='fit-content' maxHeight={500} fit='contain' title='page-hero' duration={1000} />
     </>
   );
 }
