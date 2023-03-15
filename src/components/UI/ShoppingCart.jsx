@@ -40,9 +40,11 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
             bottom: 80,
             right: 16,
             minWidth: 300,
+            width: { xs: 'calc(100% - 32px)', sm: 'fit-content' },
             zIndex: 100,
             backgroundColor: 'white',
             padding: 2,
+            borderRadius: 1,
           }}>
           <Button
             variant='contained'
@@ -64,10 +66,9 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
                 }}>
                 <CardHeader
                   title={product.title}
-                  sx={{ margin: 0, paddingY: 1 }}
+                  sx={{ margin: 0, paddingTop: 1, paddingBottom: 0 }}
                   titleTypographyProps={{
-                    fontFamily: 'arbotek',
-                    fontWeight: 900,
+                    fontWeight: 700,
                     color: 'black.light',
                     fontSize: 18,
                     textAlign: 'right',
@@ -93,7 +94,7 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
             }}>
             <Typography variant='body1'>Total:</Typography> <Typography variant='body2'>{state.total} kr</Typography>
           </Box>
-          <Box sx={{ display: 'flex', marginTop: 1, gap: 1 }}>
+          <Box sx={{ display: 'flex', marginTop: 1, gap: 1, justifyContent: 'right' }}>
             <Button variant='contained' sx={{ backgroundColor: 'black.light', color: 'white.main' }} onClick={() => setIsShown(false)}>
               Continue Shopping
             </Button>

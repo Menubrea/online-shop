@@ -6,7 +6,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 export function ProductDetails({ data }) {
   return (
     <>
-      <Image src={data.imageUrl} title={data.title} sx={{ maxHeight: 500 }} />
+      <Image src={data.imageUrl} title={data.title} sx={{ maxHeight: 500, borderRadius: 1 }} />
       <Box>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: 2 }}>
           <Typography variant='h4' component='h1' sx={{ fontFamily: 'arbotek', fontWeight: 900, color: 'black.light' }}>

@@ -13,11 +13,7 @@ export function AddToCart({ data, dispatch, state }) {
       <Box sx={{ marginBottom: 1, backgroundColor: 'secondary.light' }}>
         <Price product={data} position='initial' />
       </Box>
-      <Button
-        sx={{ borderRadius: 0, backgroundColor: 'secondary.main', color: 'black.main' }}
-        fullWidth
-        variant='contained'
-        onClick={() => dispatch({ type: 'addProduct', payload: data })}>
+      <Button sx={{ borderRadius: 0 }} fullWidth color='primary' variant='contained' onClick={() => dispatch({ type: 'addProduct', payload: data })}>
         Add to Cart
       </Button>
       {/* Display this if cart is not empty */}

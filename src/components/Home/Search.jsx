@@ -82,7 +82,7 @@ export function Search({ data }) {
     <>
       <Box sx={{ position: 'relative', marginTop: 2, width: '100%' }}>
         <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-          <TextField sx={{ margin: 0 }} onChange={handleChange} label='Search All Products' fullWidth variant='standard' id='searchField' />
+          <TextField sx={{ margin: 0 }} onChange={handleChange} label='Search All Products' fullWidth variant='outlined' id='searchField' />
           {searchField && (
             <IconButton sx={{ height: 'min-content' }} size='small' variant='contained' onClick={resetField}>
               <CloseIcon />

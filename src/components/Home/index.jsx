@@ -40,8 +40,8 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
           marginTop: 2,
         }}>
         <Box sx={{ minWidth: 150, marginTop: 2 }}>
-          <FormControl variant='standard' fullWidth>
-            <InputLabel variant='standard' htmlFor='uncontrolled-native'>
+          <FormControl variant='outlined' fullWidth>
+            <InputLabel variant='outlined' htmlFor='uncontrolled-native'>
               Category
             </InputLabel>
             <Select defaultValue='all' label='Category'>
