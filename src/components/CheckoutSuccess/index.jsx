@@ -10,8 +10,6 @@ const StyledMain = styled(Box)`
   justify-content: center;
   align-items: center;
   min-height: 80vh;
-  background: rgb(114, 160, 179);
-  background: linear-gradient(10deg, rgba(114, 160, 179, 0.259) 0%, rgba(255, 204, 188, 0.268) 100%);
 `;
 
 const UnLink = styled(Link)`
@@ -20,7 +18,7 @@ const UnLink = styled(Link)`
 `;
 
 const StyledContainer = styled(Container)`
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
   padding: 2em;
   background-color: #ffffff88;
   border-radius: 1em;
@@ -40,6 +38,7 @@ const StyledBox = styled(Box)`
 `;
 
 const EaseOutBox = styled(Box)`
+  padding: 2em;
   animation: hide 5.1s ease-in;
 
   @keyframes hide {
@@ -61,21 +60,23 @@ const EaseOutBox = styled(Box)`
 export function CheckoutSuccess({ dispatch }) {
   const [isProcessing, setIsProcessing] = useState(true);
 
+  // Simulating a network request by rendering different content depending on state.
   useEffect(() => {
     setTimeout(() => {
       setIsProcessing(false);
     }, 5000);
   }, []);
 
+  // Clears cart
   useEffect(() => {
     return dispatch({ type: 'clearCart' });
   }, [dispatch]);
 
   return (
-    <StyledMain component='main'>
+    <StyledMain sx={{ backgroundColor: 'black.light' }} component='main'>
       <StyledContainer>
         {isProcessing ? (
-          <EaseOutBox sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <EaseOutBox sx={{ display: 'flex', alignItems: 'center', gap: 2, position: 'relative', overflow: 'hidden' }}>
             <Image height={80} width={80} sx={{ borderRadius: 100 }} src={loading} />
             <Typography sx={{ marginRight: 2 }} variant='h6'>
               Processing your order.
