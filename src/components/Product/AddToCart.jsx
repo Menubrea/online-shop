@@ -1,4 +1,4 @@
-import Price from '../Price';
+import Price from '../ProductComponents/Price';
 import { Button, styled, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
