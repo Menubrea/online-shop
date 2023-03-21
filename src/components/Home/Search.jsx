@@ -1,7 +1,7 @@
 import { IconButton, Card, CardContent, CardMedia, Container, TextField, Typography, styled, Box, Divider } from '@mui/material';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import Price from '../Price';
+import Price from '../ProductComponents/Price';
 
 const SearchContainer = styled(Container)`
   position: absolute;
@@ -79,28 +79,26 @@ export function Search({ data }) {
       ));
 
   return (
-    <>
-      <Box sx={{ position: 'relative', marginTop: 2, width: '100%' }}>
-        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-          <TextField sx={{ margin: 0 }} onChange={handleChange} label='Search All Products' fullWidth variant='outlined' id='searchField' />
-          {searchField && (
-            <IconButton sx={{ height: 'min-content' }} size='small' variant='contained' onClick={resetField}>
-              <CloseIcon />
-            </IconButton>
-          )}
-        </Box>
+    <Box sx={{ position: 'relative', marginTop: 2, width: '100%' }}>
+      <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+        <TextField sx={{ margin: 0 }} onChange={handleChange} label='Search All Products' fullWidth variant='outlined' id='searchField' />
         {searchField && (
-          <SearchContainer>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              {' '}
-              <Typography>Search results for: {searchField}</Typography>
-              <Typography>Total: {filteredItems.length}</Typography>
-            </Box>
-            <Divider />
-            {display}
-          </SearchContainer>
+          <IconButton sx={{ height: 'min-content' }} size='small' variant='contained' onClick={resetField}>
+            <CloseIcon />
+          </IconButton>
         )}
       </Box>
-    </>
+      {searchField && (
+        <SearchContainer>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            {' '}
+            <Typography>Search results for: {searchField}</Typography>
+            <Typography>Total: {filteredItems.length}</Typography>
+          </Box>
+          <Divider />
+          {display}
+        </SearchContainer>
+      )}
+    </Box>
   );
 }
