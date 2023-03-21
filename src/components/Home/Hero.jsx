@@ -1,7 +1,7 @@
 import Image from 'mui-image';
 import hero from '../../assets/hero.png';
 // import { useState, useEffect } from 'react';
-import { Container, Box, styled } from '@mui/material';
+import { Box, styled } from '@mui/material';
 
 const StyledBox = styled(Box)`
   animation: Fade 1s ease-in;

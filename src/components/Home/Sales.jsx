@@ -16,9 +16,11 @@ export function Sales({ data }) {
   function OnSaleItem({ item }) {
     return (
       <Paper sx={{ overflow: 'hidden', height: 'fit-content', position: 'relative' }}>
-        <Image src={item.imageUrl} height={300} fit='cover' />
-        <CardHeader sx={{ position: 'absolute', bottom: 0 }} title={item.title} />
-        <Price sx={{ position: 'absolute', top: 0 }} product={item} />
+        <Box>
+          <Image src={item.imageUrl} height={300} fit='cover' />
+          <CardHeader title={item.title} />
+          <Price product={item} />
+        </Box>
         <Sale product={item} />
       </Paper>
     );

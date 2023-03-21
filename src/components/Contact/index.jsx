@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Image from 'mui-image';
 import hero from '../../assets/hero.png';
 import { ContactForm } from './ContactForm';

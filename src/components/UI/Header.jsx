@@ -2,7 +2,6 @@ import { Nav } from './Nav';
 import { AppBar, Toolbar, Typography, Slide, styled, Box } from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import React from 'react';
-import Image from 'mui-image';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 
