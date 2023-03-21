@@ -32,7 +32,7 @@ export default function Hero() {
   // }, [isShown]);
 
   return (
-    <Container sx={{ position: 'relative' }}>
+    <Box sx={{ position: 'relative' }}>
       <StyledBox>
         <Image src={hero} height='fit-content' maxHeight={500} fit='contain' title='page-hero' duration={1000} />
       </StyledBox>
@@ -45,6 +45,6 @@ export default function Hero() {
             Show Illustration
           </Button>
         )} */}
-    </Container>
+    </Box>
   );
 }
