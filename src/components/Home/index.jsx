@@ -4,6 +4,7 @@ import { Search } from './Search';
 import Hero from './Hero';
 import { FilterHook } from '../../Hooks/FilterHook';
 import { Filters } from './Filters';
+import { Sales } from './Sales';
 
 export function Home({ data, isLoading, isError, state, dispatch }) {
   const { filterData, headline, Reset, FilterTag } = FilterHook(data);
@@ -11,6 +12,7 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
   return (
     <Box component='main'>
       <Hero />
+      <Sales data={data} />
       <Container
         sx={{
           display: { sm: 'flex', xs: 'block' },
