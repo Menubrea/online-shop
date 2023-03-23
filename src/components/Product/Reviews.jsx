@@ -1,4 +1,4 @@
-import { Card, CardHeader, Box, Rating, Typography, CardContent } from '@mui/material';
+import { Paper, CardHeader, Box, Rating, Typography, CardContent, Divider } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
@@ -8,17 +8,17 @@ export function Reviews({ data }) {
   return (
     <>
       {data.reviews &&
-        data.reviews.map((review) => {
+        data.reviews.map((review, index) => {
           return (
-            <Card key={review.id} sx={{ marginTop: 2 }}>
+            <Paper key={index} sx={{ marginTop: 2, overflow: 'hidden' }}>
               {console.log(review)}
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'black.light' }}>
                 <CardHeader
+                  sx={{ paddingY: 0.5 }}
                   title={review.username}
                   titleTypographyProps={{
-                    fontFamily: 'arbotek',
-                    fontWeight: 900,
-                    color: 'black.light',
+                    color: 'white.light',
+                    fontSize: 22,
                   }}
                 />
                 {review.rating > 0 ? (
@@ -31,16 +31,17 @@ export function Reviews({ data }) {
                     precision={0.5}
                     readOnly
                     icon={<FavoriteIcon fontSize='inherit' />}
-                    emptyIcon={<FavoriteBorderIcon fontSize='inherit' />}
+                    emptyIcon={<FavoriteBorderIcon fontSize='inherit' color='white' />}
                   />
                 ) : (
                   <Typography>No rating</Typography>
                 )}
               </Box>
-              <CardContent sx={{ marginY: 0, paddingY: 0 }}>
+              <Divider />
+              <CardContent sx={{ marginY: 0, paddingY: 0, marginTop: 2 }}>
                 <Typography>{review.description}</Typography>
               </CardContent>
-            </Card>
+            </Paper>
           );
         })}
     </>
