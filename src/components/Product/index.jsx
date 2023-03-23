@@ -9,7 +9,7 @@ import { ProductDetails } from './ProductDetails';
 import { Sale } from '../ProductComponents/Price';
 
 export default function ProductPage({ data, state, dispatch }) {
-  const [filterProduct, setFilterProduct] = useState([]);
+  const [filterProduct, setFilterProduct] = useState({});
 
   let { id } = useParams();
 
@@ -23,7 +23,7 @@ export default function ProductPage({ data, state, dispatch }) {
     });
   }, [filterProduct, id, data]);
 
-  if (filterProduct) {
+  if (data) {
     return (
       <Box
         sx={{
