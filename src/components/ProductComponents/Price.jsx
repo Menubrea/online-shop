@@ -15,9 +15,10 @@ export function Sale({ product }) {
       sx={{
         position: 'absolute',
         top: -65,
-        left: -70,
+        left: -75,
         padding: '5em 5em 0.2em',
-        backgroundColor: '#b0d995',
+        backgroundColor: '#bdd7aca7',
+        backdropFilter: 'blur(30px)',
         color: '#1a1a1a',
         transform: 'rotate(-20deg)',
       }}>
