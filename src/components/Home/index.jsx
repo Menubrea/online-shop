@@ -12,7 +12,23 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
   return (
     <Box component='main'>
       <Hero />
-      <Sales data={data} />
+      <Typography
+        variant='h5'
+        component='h1'
+        sx={{
+          backgroundColor: 'black.light',
+          textAlign: 'center',
+          color: 'white.light',
+          padding: '0.2em .6em',
+          width: 'fit-content',
+          margin: '.5em auto',
+          borderRadius: 2,
+        }}>
+        New Weekend Deals
+      </Typography>
+      <Container>
+        <Sales data={data} />
+      </Container>
       <Container
         sx={{
           display: { sm: 'flex', xs: 'block' },
@@ -25,24 +41,21 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
         <Search data={data} />
       </Container>
       <Box component='section'>
-        <Typography
-          variant='h5'
-          component='h1'
-          sx={{
-            marginTop: 2,
-            marginBottom: 1,
-            fontFamily: 'arbotek',
-            fontWeight: 900,
-            color: 'white.main',
-            backgroundColor: 'black.light',
-            width: 'fit-content',
-            paddingX: 2,
-            paddingBottom: 0.8,
-            marginX: 'auto',
-          }}>
-          {headline}
-        </Typography>
-        <Products data={filterData} isError={isError} isLoading={isLoading} state={state} dispatch={dispatch} headerElement='h2' />
+        <Container>
+          <Typography
+            variant='h6'
+            component='h2'
+            sx={{
+              marginY: 2,
+              color: 'white.main',
+              backgroundColor: 'black.light',
+              paddingY: 1,
+              textAlign: 'center',
+            }}>
+            {headline}
+          </Typography>
+        </Container>
+        <Products data={filterData} isError={isError} isLoading={isLoading} state={state} dispatch={dispatch} headerElement='h3' />
       </Box>
     </Box>
   );
