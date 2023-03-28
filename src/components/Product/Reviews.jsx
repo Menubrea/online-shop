@@ -8,14 +8,14 @@ export function Reviews({ data }) {
       {data.reviews &&
         data.reviews.map((review, index) => {
           return (
-            <Paper key={index} sx={{ marginTop: 2, overflow: 'hidden' }}>
+            <Paper elevation={1} key={index} sx={{ marginTop: 2, overflow: 'hidden' }}>
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'black.light' }}>
                 <CardHeader
-                  sx={{ paddingY: 0.5 }}
+                  sx={{ paddingY: 0.4 }}
                   title={review.username}
                   titleTypographyProps={{
                     color: 'white.light',
-                    fontSize: 22,
+                    fontSize: 18,
                   }}
                 />
                 {review.rating > 0 ? (
@@ -35,9 +35,9 @@ export function Reviews({ data }) {
                 )}
               </Box>
               <Divider />
-              <CardContent sx={{ marginY: 0, paddingY: 0, marginTop: 2 }}>
-                <Typography>{review.description}</Typography>
-              </CardContent>
+              <Box sx={{ padding: 1, paddingX: 2 }}>
+                <Typography variant='body2'>{review.description}</Typography>
+              </Box>
             </Paper>
           );
         })}
