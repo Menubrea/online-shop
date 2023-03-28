@@ -15,12 +15,14 @@ const StyledCard = styled(Card)`
   background: rgb(255, 240, 235);
   background: linear-gradient(10deg, rgba(255, 240, 235, 0.3) 0%, rgba(249, 249, 249, 0.3) 100%);
   cursor: pointer;
-  border: 0.5px solid rgba(0, 0, 0, 1);
+  outline: 0.5px solid rgba(0, 0, 0, 0.5);
   border-radius: 0.5em;
   height: 390px;
+  transition: all 200ms ease-in-out;
 
   :hover {
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
   }
 `;
 
