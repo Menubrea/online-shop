@@ -4,6 +4,7 @@ import { Box, Container, styled, Typography, Divider, Button } from '@mui/materi
 import { Link } from 'react-router-dom';
 import loading from '../../assets/loading.gif';
 import checkmark from '../../assets/checkmark.gif';
+import { MetaData } from '../MetaData';
 
 const StyledMain = styled(Box)`
   display: grid;
@@ -75,6 +76,7 @@ export function CheckoutSuccess({ dispatch }) {
 
   return (
     <StyledMain sx={{ backgroundColor: 'black.light' }} component='main'>
+      <MetaData title='Re:mote | Checkout' description='Checkout at Re:mote' />
       <StyledContainer>
         {isProcessing ? (
           <EaseOutBox sx={{ display: 'flex', alignItems: 'center', gap: 2, position: 'relative', overflow: 'hidden' }}>

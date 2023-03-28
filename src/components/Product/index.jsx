@@ -7,6 +7,7 @@ import { StoreInformation } from '../StoreInformation';
 import { AddToCart } from './AddToCart';
 import { ProductDetails } from './ProductDetails';
 import { Sale } from '../ProductComponents/Price';
+import { MetaData } from '../MetaData';
 
 const StyledLink = styled(Link)`
   all: unset;
@@ -32,7 +33,7 @@ export default function ProductPage({ data, state, dispatch }) {
       }
       return false;
     });
-  });
+  }, [id, data]);
 
   useEffect(() => {
     if (!id) {
@@ -44,7 +45,7 @@ export default function ProductPage({ data, state, dispatch }) {
         return false;
       });
     }
-  });
+  }, [id, data]);
 
   useEffect(() => {
     let array = [];
@@ -55,7 +56,7 @@ export default function ProductPage({ data, state, dispatch }) {
       }
       return false;
     });
-  });
+  }, [id, data, filterProduct]);
 
   if (data) {
     return (
@@ -64,6 +65,11 @@ export default function ProductPage({ data, state, dispatch }) {
           marginY: 2,
         }}
         component='main'>
+        <MetaData
+          title={`Re:mote | ${filterProduct.title}`}
+          description={`Re:mote | ${filterProduct.description}`}
+          tags={filterProduct.tags.map((tag) => tag)}
+        />
         <Container
           sx={{
             display: 'grid',
@@ -78,7 +84,14 @@ export default function ProductPage({ data, state, dispatch }) {
             {filterProduct.discountedPrice !== filterProduct.price && <Sale product={filterProduct} />}
           </Box>
           <Box
-            sx={{ gridColumn: { md: '3 / 4', xs: '1 / 4' }, padding: 2, border: 0.5, borderStyle: 'solid', borderRadius: 2, borderColor: 'rgba(0, 0, 0, .2)' }}>
+            sx={{
+              gridColumn: { md: '3 / 4', xs: '1 / 4' },
+              padding: 2,
+              border: 0.5,
+              borderStyle: 'solid',
+              borderRadius: 2,
+              borderColor: 'rgba(0, 0, 0, .2)',
+            }}>
             <AddToCart data={filterProduct} dispatch={dispatch} state={state} />
             <Reviews data={filterProduct} />
             <StoreInformation />

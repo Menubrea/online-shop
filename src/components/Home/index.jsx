@@ -5,12 +5,18 @@ import Hero from './Hero';
 import { FilterHook } from '../../Hooks/FilterHook';
 import { Filters } from './Filters';
 import { Sales } from './Sales';
+import { MetaData } from '../MetaData';
 
 export function Home({ data, isLoading, isError, state, dispatch }) {
   const { filterData, headline, Reset, FilterTag } = FilterHook(data);
 
   return (
     <Box component='main'>
+      <MetaData
+        title='Re:mote | Home'
+        description='Online Store | Purchase all kinds of items online, quick and easy with price match guarantee'
+        tags='Shop, purchase, online, e-commerce'
+      />
       <Hero />
       <Typography
         variant='h5'

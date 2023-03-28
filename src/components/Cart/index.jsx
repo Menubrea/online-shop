@@ -4,6 +4,7 @@ import { StoreInformation } from '../StoreInformation';
 import { CartContent } from './CartContent';
 import { EmptyCart } from './EmptyCart';
 import { CartPurchase } from './CartPurchase';
+import { MetaData } from '../MetaData';
 
 const StyledLink = styled(Link)`
   all: unset;
@@ -58,6 +59,7 @@ const StyledBox = styled(Box)`
 export function Cart({ state, dispatch }) {
   return (
     <Box component='main'>
+      <MetaData title='Re:mote | Your Cart' description='View your Cart' tags='Re:mote, Cart, Shopping, your items' />
       <Container
         sx={{
           marginY: 2,
