@@ -1,4 +1,4 @@
-import { Paper, CardHeader, Box, Rating, Typography, CardContent, Divider } from '@mui/material';
+import { Paper, CardHeader, Box, Rating, Typography, Divider } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
