@@ -1,7 +1,7 @@
 import Image from 'mui-image';
 import hero from '../../assets/hero.png';
 // import { useState, useEffect } from 'react';
-import { Box, styled } from '@mui/material';
+import { Box, styled, Container } from '@mui/material';
 
 const StyledBox = styled(Box)`
   animation: Fade 1s ease-in;
@@ -32,9 +32,9 @@ export default function Hero() {
   // }, [isShown]);
 
   return (
-    <Box sx={{ position: 'relative' }}>
-      <StyledBox>
-        <Image src={hero} height='fit-content' maxHeight={500} fit='contain' title='page-hero' duration={1000} />
+    <Container sx={{ position: 'relative' }}>
+      <StyledBox sx={{ marginTop: 2 }}>
+        <Image src={hero} height='fit-content' maxHeight={500} fit='contain' title='page-hero' duration={100} sx={{ borderRadius: 5 }} />
       </StyledBox>
       {/* {isShown ? (
           <Button sx={{ position: 'absolute', top: 0, borderRadius: 0 }} variant='outlined' fullWidth onClick={() => DisplayHero(false)}>
@@ -45,6 +45,6 @@ export default function Hero() {
             Show Illustration
           </Button>
         )} */}
-    </Box>
+    </Container>
   );
 }
