@@ -1,4 +1,4 @@
-import { Box, Typography, Button, styled } from '@mui/material';
+import { Box, Button, styled, Alert } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const StyledLink = styled(Link)`
@@ -9,13 +9,11 @@ const StyledLink = styled(Link)`
 export function EmptyCart() {
   return (
     <Box>
-      <Typography sx={{ textAlign: 'center' }} variant='body1' component='p'>
-        Your Cart is Empty.
-      </Typography>
+      <Alert severity='info'>Your Cart is Empty.</Alert>
 
       <StyledLink to='/'>
         {' '}
-        <Button sx={{ marginTop: 1 }} fullWidth variant='contained' color='secondary'>
+        <Button sx={{ marginTop: 1 }} variant='contained' color='primary'>
           Go back to products
         </Button>
       </StyledLink>

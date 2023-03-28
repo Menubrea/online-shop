@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Button, styled, Divider } from '@mui/material';
+import { Box, Container, Typography, Button, styled, Divider, Alert } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { StoreInformation } from '../StoreInformation';
 import { CartContent } from './CartContent';
@@ -94,7 +94,7 @@ export function Cart({ state, dispatch }) {
             </Box>
           )}
           {/* Display product name, price and quantity, else display empty cart */}
-          {state.cart.length > 0 ? <CartPurchase state={state} /> : <Typography variant='body1'>Cart is empty</Typography>}
+          {state.cart.length > 0 ? <CartPurchase state={state} /> : <Alert severity='info'>Empty Cart</Alert>}
           <Divider />
           <Box sx={{ display: 'flex', justifyContent: 'space-between ', marginTop: 1 }}>
             <Typography>Total:</Typography>

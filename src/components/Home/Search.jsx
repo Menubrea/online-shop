@@ -1,4 +1,4 @@
-import { IconButton, CardContent, CardMedia, Container, TextField, Typography, styled, Box, Divider } from '@mui/material';
+import { IconButton, CardContent, CardMedia, Container, TextField, Typography, styled, Box, Divider, Alert } from '@mui/material';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
@@ -62,9 +62,12 @@ export function Search({ data }) {
   let display;
   filteredItems.length === 0 && searchField.length > 0
     ? (display = (
-        <Typography variant='h6' component='div' sx={{ textAlign: 'center', marginTop: 2 }}>
-          No items found.
-        </Typography>
+        <Alert sx={{ marginTop: 1 }} severity='info'>
+          No items found
+        </Alert>
+        // <Typography variant='h6' component='div' sx={{ textAlign: 'center', marginTop: 2 }}>
+        //   No items found.
+        // </Typography>
       ))
     : (display = (
         <GridBox>
