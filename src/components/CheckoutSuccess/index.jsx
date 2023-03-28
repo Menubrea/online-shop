@@ -9,7 +9,8 @@ const StyledMain = styled(Box)`
   display: grid;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: calc(100vh);
+  padding: 2em;
 `;
 
 const UnLink = styled(Link)`
@@ -19,8 +20,8 @@ const UnLink = styled(Link)`
 
 const StyledContainer = styled(Container)`
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
-  padding: 2em;
-  background-color: #ffffff88;
+  padding: 1em;
+  background-color: #ffffff;
   border-radius: 1em;
 `;
 
