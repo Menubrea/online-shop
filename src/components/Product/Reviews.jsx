@@ -3,15 +3,12 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 export function Reviews({ data }) {
-  console.log(data);
-
   return (
     <>
       {data.reviews &&
         data.reviews.map((review, index) => {
           return (
             <Paper key={index} sx={{ marginTop: 2, overflow: 'hidden' }}>
-              {console.log(review)}
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'black.light' }}>
                 <CardHeader
                   sx={{ paddingY: 0.5 }}
