@@ -11,9 +11,12 @@ export function Tags({ product }) {
             sx={{
               display: 'inline-flex',
               marginRight: 0.4,
+              borderRadius: 10,
               backgroundColor: 'white.light',
-              paddingX: 0.4,
+              paddingX: 1,
               fontSize: 14,
+              height: 'fit-content',
+              alignItems: 'center',
             }}>
             {tag}
           </Box>
