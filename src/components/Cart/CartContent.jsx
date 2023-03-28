@@ -15,8 +15,18 @@ const StyledLink = styled(Link)`
 export function CartContent({ state, dispatch }) {
   return state.cart.map((product) => {
     return (
-      <Box component='article' key={product.id} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: 1 }}>
-        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+      <Box
+        component='article'
+        key={product.id}
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          boxShadow: '0 0 1px 1px rgba(0, 0, 0, .1)',
+          marginBottom: 1,
+          borderRadius: 1,
+        }}>
+        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', paddingLeft: 1 }}>
           <Image src={product.imageUrl} title={product.title} height={60} width={60} sx={{ borderRadius: 100 }} duration={500} />
           <Box>
             <StyledLink to={`/product/${product.id}`}>
