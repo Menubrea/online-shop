@@ -3,7 +3,7 @@ import { Box, Select, FormControl, InputLabel, MenuItem } from '@mui/material';
 export function Filters({ Reset, FilterTag }) {
   return (
     <Box sx={{ minWidth: 150, marginTop: 2 }}>
-      <FormControl variant='outlined' fullWidth>
+      <FormControl color='secondary' variant='outlined' fullWidth>
         <InputLabel variant='outlined' htmlFor='uncontrolled-native'>
           Category
         </InputLabel>

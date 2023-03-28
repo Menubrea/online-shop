@@ -1,7 +1,16 @@
-import { IconButton, Card, CardContent, CardMedia, Container, TextField, Typography, styled, Box, Divider } from '@mui/material';
+import { IconButton, CardContent, CardMedia, Container, TextField, Typography, styled, Box, Divider } from '@mui/material';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import Price from '../ProductComponents/Price';
+import { Link } from 'react-router-dom';
+
+const UnLink = styled(Link)`
+  all: unset;
+  display: block;
+  cursor: pointer;
+  :hover {
+    outline: 1px dashed #4f4f4f;
+  }
+`;
 
 const SearchContainer = styled(Container)`
   position: absolute;
@@ -17,8 +26,7 @@ const GridBox = styled(Box)`
   padding: 0.2em;
   padding-left: 0;
   padding-right: 0;
-  gap: 1em;
-  border-radius: 0.2em;
+  gap: 0.5em;
   margin-top: 0.2em;
   grid-template-columns: repeat(3, 1fr);
 
@@ -54,7 +62,7 @@ export function Search({ data }) {
   let display;
   filteredItems.length === 0 && searchField.length > 0
     ? (display = (
-        <Typography variant='h6' component='div' sx={{ textAlign: 'center', marginTop: 1 }}>
+        <Typography variant='h6' component='div' sx={{ textAlign: 'center', marginTop: 2 }}>
           No items found.
         </Typography>
       ))
@@ -62,18 +70,30 @@ export function Search({ data }) {
         <GridBox>
           {filteredItems &&
             filteredItems.map((product) => (
-              <Card key={product.id} sx={{ borderRadius: 0, boxShadow: 'none' }}>
-                <CardMedia sx={{ height: 120, objectFit: 'cover' }} image={product.imageUrl} title={product.title} />
-                <Price product={product} position='initial' />
-                <CardContent sx={{ marginY: 0, padding: 1 }}>
-                  <Typography component='h2' variant='h6' sx={{ padding: 0, margin: 0, paddingBottom: 0 }}>
-                    {product.title}
-                  </Typography>
-                  <Typography component='p' variant='body2' sx={{ padding: 0, margin: 0, paddingBottom: 0 }}>
-                    {product.description}
-                  </Typography>
-                </CardContent>
-              </Card>
+              <Box sx={{}} key={product.id}>
+                <UnLink
+                  to={`/product/${product.id}`}
+                  sx={{
+                    display: 'flex',
+                    backgroundColor: 'white.main',
+                    alignItems: 'center',
+                    borderRadius: 2,
+                    borderTop: 2,
+                    borderBottom: 2,
+                    borderColor: 'primary.main',
+                  }}>
+                  <CardMedia
+                    sx={{ height: 40, width: 40, objectFit: 'cover', marginLeft: 1, borderRadius: 2 }}
+                    image={product.imageUrl}
+                    title={product.title}
+                  />
+                  <CardContent sx={{ marginY: 0, padding: 1 }}>
+                    <Typography component='p' variant='body1' sx={{ padding: 0, margin: 0, paddingBottom: 0 }}>
+                      {product.title}
+                    </Typography>
+                  </CardContent>
+                </UnLink>
+              </Box>
             ))}
         </GridBox>
       ));
@@ -81,7 +101,7 @@ export function Search({ data }) {
   return (
     <Box sx={{ position: 'relative', marginTop: 2, width: '100%' }}>
       <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-        <TextField sx={{ margin: 0 }} onChange={handleChange} label='Search All Products' fullWidth variant='outlined' id='searchField' />
+        <TextField sx={{ margin: 0 }} onChange={handleChange} label='Search All Products' fullWidth variant='outlined' color='secondary' id='searchField' />
         {searchField && (
           <IconButton sx={{ height: 'min-content' }} size='small' variant='contained' onClick={resetField}>
             <CloseIcon />
