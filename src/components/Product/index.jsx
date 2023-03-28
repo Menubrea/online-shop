@@ -8,6 +8,7 @@ import { AddToCart } from './AddToCart';
 import { ProductDetails } from './ProductDetails';
 import { Sale } from '../ProductComponents/Price';
 import { MetaData } from '../MetaData';
+import { BreadCrumbs } from '../BreadCrumbs';
 
 const StyledLink = styled(Link)`
   all: unset;
@@ -70,6 +71,7 @@ export default function ProductPage({ data, state, dispatch }) {
           description={`Re:mote | ${filterProduct.description}`}
           tags={filterProduct.tags.map((tag) => tag)}
         />
+        <BreadCrumbs product={filterProduct} />
         <Container
           sx={{
             display: 'grid',
