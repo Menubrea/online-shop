@@ -13,10 +13,10 @@ const LinkWrapper = styled(Link)`
 const StyledCard = styled(Card)`
   position: relative;
   background: rgb(255, 240, 235);
-  background: linear-gradient(10deg, rgba(255, 240, 235, 0.4) 0%, rgba(249, 249, 249, 0.4) 100%);
+  background: linear-gradient(10deg, rgba(255, 240, 235, 0.3) 0%, rgba(249, 249, 249, 0.3) 100%);
   cursor: pointer;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 0em;
+  border: 0.5px solid rgba(0, 0, 0, 1);
+  border-radius: 0.5em;
   height: 390px;
 
   :hover {
@@ -24,7 +24,7 @@ const StyledCard = styled(Card)`
   }
 `;
 
-export default function ProductCard({ data, dispatch, headerElement }) {
+export default function ProductCard({ data, headerElement }) {
   return (
     <>
       {data.map((product) => (
@@ -80,12 +80,9 @@ export default function ProductCard({ data, dispatch, headerElement }) {
               paddingBottom: 0.5,
               textAlign: 'center',
               position: 'absolute',
-              transform: 'rotate(0deg)',
               fontFamily: 'arbotek',
               fontWeight: 900,
               fontSize: 20,
-              borderBottom: '5px solid #ffccbc',
-
               '&:hover': {
                 boxShadow: '0px 0px 20px 1px rgba(0, 0, 0, .2)',
               },
