@@ -13,27 +13,27 @@ const StyledLink = styled(Link)`
 const StyledBox = styled(Box)`
   animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
 
-  article:nth-child(2) {
+  article:nth-of-type(2) {
     animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
     animation-delay: 0.1s;
   }
-  article:nth-child(3) {
+  article:nth-of-type(3) {
     animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
     animation-delay: 0.2s;
   }
-  article:nth-child(4) {
+  article:nth-of-type(4) {
     animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
     animation-delay: 0.3s;
   }
-  article:nth-child(5) {
+  article:nth-of-type(5) {
     animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
     animation-delay: 0.4s;
   }
-  article:nth-child(6) {
+  article:nth-of-type(6) {
     animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
     animation-delay: 0.5s;
   }
-  article:nth-child(7) {
+  article:nth-of-type(7) {
     animation: slideIn 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.25);
     animation-delay: 0.6s;
   }
