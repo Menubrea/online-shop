@@ -1,6 +1,6 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Typography, styled, Divider } from '@mui/material';
 import { Reviews } from './Reviews';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Products } from '../Home/Products';
 import { StoreInformation } from '../StoreInformation';
@@ -8,8 +8,19 @@ import { AddToCart } from './AddToCart';
 import { ProductDetails } from './ProductDetails';
 import { Sale } from '../ProductComponents/Price';
 
+const StyledLink = styled(Link)`
+  all: unset;
+  padding: 0.5em 1em;
+  margin: 0 auto;
+  width: fit-content;
+  background-color: #f7d6c9;
+  border: 1px solid darkgrey;
+  cursor: pointer;
+`;
+
 export default function ProductPage({ data, state, dispatch }) {
-  const [filterProduct, setFilterProduct] = useState({});
+  const [filterProduct, setFilterProduct] = useState({ tags: [] });
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   let { id } = useParams();
 
@@ -21,14 +32,38 @@ export default function ProductPage({ data, state, dispatch }) {
       }
       return false;
     });
-  }, [filterProduct, id, data]);
+  });
+
+  useEffect(() => {
+    if (!id) {
+      let storedId = localStorage.getItem('id');
+      data.filter((product) => {
+        if (storedId === product.id) {
+          return setFilterProduct(product);
+        }
+        return false;
+      });
+    }
+  });
+
+  useEffect(() => {
+    let array = [];
+    data.filter((product) => {
+      if (product.id !== filterProduct.id && product.tags.some((item) => filterProduct.tags.includes(item))) {
+        array.push(product);
+        return setFilteredProducts(array);
+      }
+      return false;
+    });
+  });
 
   if (data) {
     return (
       <Box
         sx={{
           marginY: 2,
-        }}>
+        }}
+        component='main'>
         <Container
           sx={{
             display: 'grid',
@@ -42,19 +77,29 @@ export default function ProductPage({ data, state, dispatch }) {
             <ProductDetails data={filterProduct} />
             {filterProduct.discountedPrice !== filterProduct.price && <Sale product={filterProduct} />}
           </Box>
-          <Box sx={{ gridColumn: { md: '3 / 4', xs: '1 / 4' }, padding: 2, border: 2, borderStyle: 'solid', borderRadius: 2, borderColor: 'black.main' }}>
+          <Box
+            sx={{ gridColumn: { md: '3 / 4', xs: '1 / 4' }, padding: 2, border: 0.5, borderStyle: 'solid', borderRadius: 2, borderColor: 'rgba(0, 0, 0, .2)' }}>
             <AddToCart data={filterProduct} dispatch={dispatch} state={state} />
             <Reviews data={filterProduct} />
             <StoreInformation />
           </Box>
         </Container>
-        <Box sx={{ marginTop: 4 }}>
+        <Divider sx={{ marginY: 2 }} />
+        <Box>
           <Container>
             <Typography variant='h6' component='h2'>
               You might also like:
             </Typography>
           </Container>
-          <Products data={data} state={state} dispatch={dispatch} headerElement='h3' />
+          {filteredProducts.length > 0 ? (
+            <Products data={filteredProducts} state={state} headerElement='h3' />
+          ) : (
+            <Box sx={{ margin: '0 auto', width: 'fit-content', padding: '.2em .5em', borderRadius: 2, backgroundColor: 'black.light', color: 'white.light' }}>
+              {' '}
+              No matches found{' '}
+            </Box>
+          )}
+          <StyledLink to='/'>Return Home</StyledLink>
         </Box>
       </Box>
     );
