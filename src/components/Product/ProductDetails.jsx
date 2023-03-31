@@ -1,4 +1,3 @@
-import Image from 'mui-image';
 import { Tags } from '../ProductComponents/Tags';
 import { Box, Rating, Typography, CardContent } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
