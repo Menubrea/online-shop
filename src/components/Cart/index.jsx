@@ -6,6 +6,7 @@ import { EmptyCart } from './EmptyCart';
 import { CartPurchase } from './CartPurchase';
 import { MetaData } from '../MetaData';
 import { BreadCrumbs } from '../BreadCrumbs';
+import PaymentsRoundedIcon from '@mui/icons-material/PaymentsRounded';
 
 const StyledLink = styled(Link)`
   all: unset;
@@ -105,7 +106,7 @@ export function Cart({ state, dispatch }) {
 
           {state.cart.length > 0 && (
             <StyledLink to='/checkoutsuccess'>
-              <Button fullWidth variant='contained'>
+              <Button startIcon={<PaymentsRoundedIcon />} fullWidth variant='contained'>
                 Purchase
               </Button>
             </StyledLink>

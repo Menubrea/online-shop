@@ -1,4 +1,4 @@
-import { Box, Container, Typography, styled, Divider } from '@mui/material';
+import { Box, Container, Typography, styled, Divider, Button } from '@mui/material';
 import { Reviews } from './Reviews';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -12,12 +12,9 @@ import { BreadCrumbs } from '../BreadCrumbs';
 
 const StyledLink = styled(Link)`
   all: unset;
-  padding: 0.5em 1em;
-  margin: 0 auto;
+  display: block;
   width: fit-content;
-  background-color: #f7d6c9;
-  border: 1px solid darkgrey;
-  cursor: pointer;
+  margin: 0 auto;
 `;
 
 export default function ProductPage({ data, state, dispatch }) {
@@ -87,7 +84,7 @@ export default function ProductPage({ data, state, dispatch }) {
             border: 0.5,
             borderStyle: 'solid',
             borderRadius: 2,
-            borderColor: 'rgba(0, 0, 0, .2)',
+            borderColor: 'rgba(0, 0, 0, .4)',
           }}>
           <AddToCart data={filterProduct} dispatch={dispatch} state={state} />
           <Reviews data={filterProduct} />
@@ -109,7 +106,11 @@ export default function ProductPage({ data, state, dispatch }) {
             No matches found{' '}
           </Box>
         )}
-        <StyledLink to='/'>Return Home</StyledLink>
+        <StyledLink to='/'>
+          <Button variant='contained' color='white'>
+            Return Home
+          </Button>
+        </StyledLink>
       </Box>
     </Box>
   );

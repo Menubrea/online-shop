@@ -1,6 +1,8 @@
 import Price from '../ProductComponents/Price';
 import { Button, styled, Box, Typography, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import AddShoppingCartRoundedIcon from '@mui/icons-material/AddShoppingCartRounded';
 
 const StyledLink = styled(Link)`
   all: unset;
@@ -20,14 +22,23 @@ export function AddToCart({ data, dispatch, state }) {
           Free Shipping
         </Typography>
       </Box>
-      <Button sx={{ borderRadius: 0 }} fullWidth variant='contained' onClick={() => dispatch({ type: 'addProduct', payload: data })}>
+      <Button
+        sx={{ borderRadius: 0, backgroundColor: 'primary.light', color: 'black.light' }}
+        startIcon={<AddShoppingCartRoundedIcon />}
+        fullWidth
+        variant='contained'
+        onClick={() => dispatch({ type: 'addProduct', payload: data })}>
         Add to Cart
       </Button>
       {/* Display this if cart is not empty */}
       {state.cart.length > 0 && (
         <StyledLink to='/checkout'>
-          <Button variant='contained' sx={{ borderRadius: 0 }} fullWidth color='white'>
-            To Checkout
+          <Button
+            startIcon={<ShoppingBagIcon />}
+            variant='contained'
+            sx={{ borderRadius: 0, backgroundColor: 'secondary.dark', color: 'white.light' }}
+            fullWidth>
+            View Cart
           </Button>
         </StyledLink>
       )}

@@ -39,6 +39,7 @@ export function Sales({ data }) {
               padding: { md: 2, xs: 1 },
               borderLeft: { md: '1px solid darkgrey', sm: 'none' },
               height: '300px',
+              backgroundColor: 'white.main',
             }}>
             <Box
               sx={{
@@ -47,7 +48,7 @@ export function Sales({ data }) {
                 backgroundColor: 'secondary.light',
                 display: 'flex',
                 justifyContent: 'space-between',
-                borderRadius: 10,
+                borderRadius: 2,
                 alignItems: 'center',
               }}>
               <Tags product={item} />
@@ -75,6 +76,7 @@ export function Sales({ data }) {
                 cursor: 'pointer',
                 borderBottom: 5,
                 borderBottomColor: 'secondary.light',
+                borderRadius: 2,
 
                 '&:hover': {
                   boxShadow: '0px 0px 20px 1px rgba(0, 0, 0, .2)',

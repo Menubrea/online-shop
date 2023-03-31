@@ -17,7 +17,7 @@ const StyledCard = styled(Card)`
   cursor: pointer;
   outline: 0.5px solid rgba(0, 0, 0, 0.5);
   border-radius: 0.5em;
-  height: 390px;
+  height: 380px;
   transition: all 200ms ease-in-out;
 
   :hover {
@@ -84,13 +84,15 @@ export default function ProductCard({ data, headerElement }) {
               position: 'absolute',
               fontFamily: 'arbotek',
               fontWeight: 900,
-              fontSize: 20,
+              fontSize: 16,
+              borderBottom: 5,
+              borderColor: 'primary.light',
               '&:hover': {
                 boxShadow: '0px 0px 20px 1px rgba(0, 0, 0, .2)',
               },
             }}
             to={`/product/${product.id}`}>
-            Read More
+            See Item
           </LinkWrapper>
         </StyledCard>
       ))}

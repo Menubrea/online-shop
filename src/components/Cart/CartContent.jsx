@@ -26,7 +26,7 @@ export function CartContent({ state, dispatch }) {
           marginBottom: 1,
           borderRadius: 1,
         }}>
-        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', paddingLeft: 1 }}>
+        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', paddingLeft: 2 }}>
           <Image src={product.imageUrl} title={product.title} height={60} width={60} sx={{ borderRadius: 100 }} duration={500} />
           <Box>
             <StyledLink to={`/product/${product.id}`}>
