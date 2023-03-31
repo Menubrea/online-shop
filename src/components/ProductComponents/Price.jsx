@@ -14,16 +14,16 @@ export function Sale({ product }) {
     <Box
       sx={{
         position: 'absolute',
-        top: -65,
-        left: -75,
+        top: -60,
+        left: -110,
         padding: '5em 5em 0.2em',
-        backgroundColor: '#bdd7aca7',
+        backgroundColor: '#bdd7accd',
         backdropFilter: 'blur(30px)',
         color: '#1a1a1a',
-        transform: 'rotate(-20deg)',
+        transform: 'rotate(-45deg)',
       }}>
-      <Typography variant='body2' component='p'>
-        {stringedPercentageDifference.split('.')[0]}% off!
+      <Typography variant='body1' component='p'>
+        - {stringedPercentageDifference.split('.')[0]}%
       </Typography>{' '}
     </Box>
   );
@@ -46,7 +46,7 @@ export default function Price({ product }) {
         </>
       ) : (
         <Box>
-          <Typography variant='body1' component='div'>
+          <Typography variant='body2' component='div'>
             {/* Else This */}
             {product.price},-
           </Typography>

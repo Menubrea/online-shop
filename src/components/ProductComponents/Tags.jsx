@@ -11,8 +11,8 @@ export function Tags({ product }) {
             sx={{
               display: 'inline-flex',
               marginRight: 0.4,
-              borderRadius: 10,
-              backgroundColor: 'white.light',
+              borderRadius: 1,
+              backgroundColor: 'white.main',
               paddingX: 1,
               fontSize: 14,
               height: 'fit-content',
