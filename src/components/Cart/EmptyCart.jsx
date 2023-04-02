@@ -6,6 +6,10 @@ const StyledLink = styled(Link)`
   display: 'block';
 `;
 
+/**
+ * Component for rendering content for an Empty Cart
+ * @returns EmptyCart
+ */
 export function EmptyCart() {
   return (
     <Box>

@@ -1,5 +1,10 @@
 import { Typography, Box } from '@mui/material';
 
+/**
+ * Component for displaying price and total of purchases.
+ * @param {*} state
+ * @returns rendered content of state.cart
+ */
 export function CartPurchase({ state }) {
   return state.cart.map((product) => {
     return (

@@ -39,9 +39,15 @@ const GridBox = styled(Box)`
   }
 `;
 
+/**
+ * Component for handling search functionality
+ * @param {array} data array of products
+ * @returns
+ */
 export function Search({ data }) {
   const [searchField, setSearchField] = useState('');
 
+  // Defining filtered items based on searchfield value and length greater than 0.
   const filteredItems = data.filter((item) => {
     if (item.title.toLowerCase().startsWith(searchField.toLowerCase()) && searchField.length > 0) {
       return true;
@@ -49,25 +55,25 @@ export function Search({ data }) {
     return false;
   });
 
+  // Handling change
   const handleChange = (e) => {
     setSearchField(e.target.value);
   };
 
+  // Reset searchfield and value of display
   const resetField = () => {
     document.querySelector('#searchField').value = '';
     setSearchField('');
     display = '';
   };
 
+  // Storing JSX in variable display based on conditions met.
   let display;
   filteredItems.length === 0 && searchField.length > 0
     ? (display = (
         <Alert sx={{ marginTop: 1 }} severity='info'>
           No items found
         </Alert>
-        // <Typography variant='h6' component='div' sx={{ textAlign: 'center', marginTop: 2 }}>
-        //   No items found.
-        // </Typography>
       ))
     : (display = (
         <GridBox>

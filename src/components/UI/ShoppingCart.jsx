@@ -4,6 +4,10 @@ import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Shopping Cart Component
+ * @returns Renders shopping cart in the application as long as the length of state.cart.length > 0.
+ */
 export function ShoppingCart({ state, dispatch }) {
   const [isShown, setIsShown] = useState(false);
   return (
@@ -30,6 +34,11 @@ const StyledBox = styled(Box)`
   background-color: white;
 `;
 
+/**
+ * Cart modal component
+ * @param {*}
+ * @returns Renders content of state.cart as a modal when isShown is true.
+ */
 export function CartModal({ state, dispatch, isShown, setIsShown }) {
   return (
     <>
@@ -96,7 +105,7 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
             <Button variant='contained' sx={{ backgroundColor: 'black.light', color: 'white.main' }} onClick={() => setIsShown(false)}>
               Continue Shopping
             </Button>
-            <StyledLink to='/checkout'>
+            <StyledLink to='/cart'>
               <Button variant='contained' sx={{ backgroundColor: 'secondary.dark', color: 'white.main' }}>
                 Checkout
               </Button>

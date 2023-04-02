@@ -7,17 +7,27 @@ import { Filters } from './Filters';
 import { Sales } from './Sales';
 import { MetaData } from '../MetaData';
 
+/**
+ * Main Component for Home Page.
+ * @param {*}
+ * @returns renders content of home page.
+ */
 export function Home({ data, isLoading, isError, state, dispatch }) {
   const { filterData, headline, Reset, FilterTag } = FilterHook(data);
 
   return (
     <Box component='main'>
+      {/* Meta Data */}
       <MetaData
         title='Re:mote | Home'
         description='Online Store | Purchase all kinds of items online, quick and easy with price match guarantee'
         tags='Shop, purchase, online, e-commerce'
       />
+
+      {/* Home Page Hero */}
       <Hero />
+
+      {/* Products on Sale */}
       <Typography
         variant='h5'
         component='h1'
@@ -35,6 +45,8 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
       <Container>
         <Sales data={data} />
       </Container>
+
+      {/* Filter options and search */}
       <Container
         sx={{
           display: { sm: 'flex', xs: 'block' },
@@ -46,6 +58,8 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
         <Filters Reset={Reset} FilterTag={FilterTag} />
         <Search data={data} />
       </Container>
+
+      {/* List of all Products and title */}
       <Box component='section'>
         <Container>
           <Typography

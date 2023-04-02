@@ -58,10 +58,18 @@ const StyledBox = styled(Box)`
   }
 `;
 
+/**
+ * Main component for Cart Page
+ * @param {*}
+ * @returns Cart
+ */
 export function Cart({ state, dispatch }) {
   return (
     <Box component='main'>
+      {/* Meta Data */}
       <MetaData title='Re:mote | Your Cart' description='View your Cart' tags='Re:mote, Cart, Shopping, your items' />
+
+      {/* Bread crumbs Nav */}
       <BreadCrumbs />
       <Container
         sx={{

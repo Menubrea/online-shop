@@ -1,12 +1,18 @@
 export const initialState = { cart: [], total: 0 };
 
+/**
+ * Reducer for handling product cart, using switch for different actions. Credit to Martin Kruger - it's his code with some minor modifications.
+ * @param {object} state state.cart stores the content of product cart
+ * @param {object} action payload of information, in this instance using a switch to discern how to interact and what to do with the payload.
+ * @returns returns an array of state.cart depending on action.type dispatched.
+ */
 export function CartReducer(state, action) {
   let dataIndex;
   let newTotal;
   let cart;
 
   switch (action.type) {
-    // Adding a data
+    // Adding Product
     case 'addProduct':
       // Create a new cart so we don't mutate our state
       cart = [...state.cart];

@@ -1,5 +1,11 @@
 export const initialFavouritesState = { favourites: [] };
 
+/**
+ * Reducer intended for storing favourite products. Currently not implemented in the application.
+ * @param {*} state state.favourites stores favourite products.
+ * @param {*} action payload of information, in this instance using a switch to discern how to interact and what to do with the payload.
+ * @returns returns an array of state.favourites depending on action.type of dispatch.
+ */
 export function FavouritesReducer(state, action) {
   let dataIndex;
   let favourites;
@@ -26,6 +32,7 @@ export function FavouritesReducer(state, action) {
 
       return { ...state, favourites: favourites };
 
+    // Retrieving stored favourites, such as from local-storage or similar.
     case 'storedFavourites':
       return { ...action.payload };
 

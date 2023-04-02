@@ -23,12 +23,18 @@ const StyledCard = styled(Card)`
   }
 `;
 
+/**
+ * Main Product Card component
+ * @param {*} data
+ * @returns Renders the product object as a product card.
+ */
 export default function ProductCard({ data, headerElement }) {
   return (
     <>
       {data.map((product) => (
         <StyledCard tabIndex={0} key={product.id} component='li'>
           <LinkWrapper to={`/product/${product.id}`}>
+            {/* Product Tags and Price */}
             <CardContent
               sx={{
                 padding: 0.5,

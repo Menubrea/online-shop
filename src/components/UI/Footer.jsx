@@ -5,6 +5,10 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import RedditIcon from '@mui/icons-material/Reddit';
 
+/**
+ * Footer component
+ * @returns rendered html for Footer component
+ */
 export function Footer() {
   return (
     <Box component='footer' sx={{ backgroundColor: 'white.main', paddingY: 2, boxShadow: '0 0 10px 1px rgba(0, 0, 0, .4)' }}>

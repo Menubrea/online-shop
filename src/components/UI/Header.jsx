@@ -10,6 +10,11 @@ const StyledLink = styled(Link)`
   cursor: pointer;
 `;
 
+/**
+ * Function for hiding component while scrolling.
+ * @param {*} props children, window
+ * @returns MUI slide component with the content of its children. A wrapper that hides the children within from the window while scrolling down.
+ */
 function HideOnScroll(props) {
   const { children, window } = props;
   const trigger = useScrollTrigger({
@@ -22,7 +27,11 @@ function HideOnScroll(props) {
     </Slide>
   );
 }
-
+/**
+ * Header component for UI
+ * @param {*} props
+ * @returns renders header to the application
+ */
 export function Header(props) {
   return (
     <>

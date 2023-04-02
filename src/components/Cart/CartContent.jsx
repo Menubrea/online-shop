@@ -12,6 +12,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
+/**
+ * Component for rendering Cart Content
+ * @param {*}
+ * @returns rendered content of state.cart
+ */
 export function CartContent({ state, dispatch }) {
   return state.cart.map((product) => {
     return (
@@ -27,7 +32,10 @@ export function CartContent({ state, dispatch }) {
           borderRadius: 1,
         }}>
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', paddingLeft: 2 }}>
+          {/* Cart Item Image */}
           <Image src={product.imageUrl} title={product.title} height={60} width={60} sx={{ borderRadius: 100 }} duration={500} />
+
+          {/* Cart Item Title and Description */}
           <Box>
             <StyledLink to={`/product/${product.id}`}>
               <Typography variant='body1' component='h2'>
@@ -39,6 +47,8 @@ export function CartContent({ state, dispatch }) {
             </Typography>
           </Box>
         </Box>
+
+        {/* Adding or Removing quantity of items */}
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <IconButton onClick={() => dispatch({ type: 'addProduct', payload: product })} variant='contained'>
             <AddCircleIcon />

@@ -1,5 +1,10 @@
 import { Typography, Box } from '@mui/material';
 
+/**
+ * Tags component for product
+ * @param {object} product
+ * @returns rendered stylized tags based on the product object.
+ */
 export function Tags({ product }) {
   return (
     <Typography>

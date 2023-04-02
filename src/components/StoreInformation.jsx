@@ -1,5 +1,10 @@
 import { Box, Typography } from '@mui/material';
 
+
+/**
+ * Component for rendering static html content regarding Store Information
+ * @returns Static html content
+ */
 export function StoreInformation() {
   return (
     <>

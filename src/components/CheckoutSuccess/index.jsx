@@ -59,10 +59,15 @@ const EaseOutBox = styled(Box)`
   }
 `;
 
+/**
+ * Main component for simulating checkout
+ * @param {*} dispatch
+ * @returns clears content of state.cart and renders html that simulates a checkout process
+ */
 export function CheckoutSuccess({ dispatch }) {
   const [isProcessing, setIsProcessing] = useState(true);
 
-  // Simulating a network request by rendering different content depending on state.
+  // Simulating a network request by rendering different content depending on state of isProccessing.
   useEffect(() => {
     setTimeout(() => {
       setIsProcessing(false);
@@ -77,6 +82,7 @@ export function CheckoutSuccess({ dispatch }) {
   return (
     <StyledMain sx={{ backgroundColor: 'black.light' }} component='main'>
       <MetaData title='Re:mote | Checkout' description='Checkout at Re:mote' />
+      {/* Render this content while isProcessing is true */}
       <StyledContainer>
         {isProcessing ? (
           <EaseOutBox sx={{ display: 'flex', alignItems: 'center', gap: 2, position: 'relative', overflow: 'hidden' }}>
@@ -87,6 +93,7 @@ export function CheckoutSuccess({ dispatch }) {
           </EaseOutBox>
         ) : (
           <StyledBox>
+            {/* Render this content while isProcessing is false */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, marginX: 'auto', width: 'fit-content', marginBottom: 1 }}>
               <Image height={80} width={80} sx={{ borderRadius: 100 }} src={checkmark} />
               <Typography variant='h6'>Success!</Typography>

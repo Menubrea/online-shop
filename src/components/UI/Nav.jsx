@@ -9,6 +9,10 @@ const StyledListItemButton = styled(ListItemButton)`
   padding: 0.5em 1em;
 `;
 
+/**
+ * Component for main navigation
+ * @returns rendered main navigation
+ */
 export function Nav() {
   return (
     <Box component='nav'>

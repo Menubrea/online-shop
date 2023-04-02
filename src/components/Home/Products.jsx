@@ -23,6 +23,11 @@ const MainGrid = styled(Container)`
   }
 `;
 
+/**
+ * Component for rendering Products
+ * @param {*}
+ * @returns returns a list of products defined by data.
+ */
 export function Products({ data, state, dispatch, headerElement }) {
   return (
     <MainGrid component='ul'>

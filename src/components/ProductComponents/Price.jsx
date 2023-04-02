@@ -4,6 +4,11 @@ const StyledBox = styled(Box)`
   text-align: center;
 `;
 
+/**
+ * Component for products on Sale.
+ * @param {object} product
+ * @returns renders content with sale value in percentage
+ */
 export function Sale({ product }) {
   let difference;
   difference = product.price - product.discountedPrice;
@@ -29,12 +34,18 @@ export function Sale({ product }) {
   );
 }
 
+/**
+ * Component for handling Price of product
+ * @param {object} product
+ * @returns renders price depending on discountedPrice or price is matching or not.
+ */
 export default function Price({ product }) {
   return (
     <StyledBox>
       {/* Display this if discounted and price does not match */}
       {product.discountedPrice !== product.price ? (
         <>
+          {/* Product disCountedPrice */}
           <Box>
             <Typography variant='body2' component='s'>
               {product.price},-
@@ -46,8 +57,8 @@ export default function Price({ product }) {
         </>
       ) : (
         <Box>
+          {/* Product Price */}
           <Typography variant='body2' component='div'>
-            {/* Else This */}
             {product.price},-
           </Typography>
         </Box>

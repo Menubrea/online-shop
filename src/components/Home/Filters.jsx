@@ -1,5 +1,10 @@
 import { Box, Select, FormControl, InputLabel, MenuItem } from '@mui/material';
 
+/**
+ * Component for filters using Select
+ * @param {*}
+ * @returns returns Select element, which filters tags.
+ */
 export function Filters({ Reset, FilterTag }) {
   return (
     <Box sx={{ minWidth: 150, marginTop: 2 }}>

@@ -2,6 +2,11 @@ import { Paper, CardHeader, Box, Rating, Typography, Divider } from '@mui/materi
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
+/**
+ * Component for rendering reviews
+ * @param {object} data Product object
+ * @returns Returns the content of the review array in the product object
+ */
 export function Reviews({ data }) {
   return (
     <>
@@ -10,6 +15,7 @@ export function Reviews({ data }) {
           return (
             <Paper elevation={1} key={index} sx={{ marginTop: 2, overflow: 'hidden' }}>
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'black.light' }}>
+                {/* Review Title */}
                 <CardHeader
                   sx={{ paddingY: 0.4 }}
                   title={review.username}
@@ -18,6 +24,7 @@ export function Reviews({ data }) {
                     fontSize: 18,
                   }}
                 />
+                {/* Review Rating */}
                 {review.rating > 0 ? (
                   <Rating
                     sx={{ color: 'primary.main', marginRight: 3 }}
@@ -35,6 +42,7 @@ export function Reviews({ data }) {
                 )}
               </Box>
               <Divider />
+              {/* Review Description */}
               <Box sx={{ padding: 1, paddingX: 2 }}>
                 <Typography variant='body2'>{review.description}</Typography>
               </Box>

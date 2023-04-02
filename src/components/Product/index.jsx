@@ -17,12 +17,18 @@ const StyledLink = styled(Link)`
   margin: 0 auto;
 `;
 
+/**
+ * Main Component for Product specific page
+ * @param {*}
+ * @returns renders the content of ProductPage to the browser.
+ */
 export default function ProductPage({ data, state, dispatch }) {
   const [filterProduct, setFilterProduct] = useState({ tags: [] });
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   let { id } = useParams();
 
+  // Filters through the product array and stores and sets value of filterProduct where product.id and id from useParams matches.
   useEffect(() => {
     data.filter((product) => {
       if (id === product.id) {
@@ -33,6 +39,7 @@ export default function ProductPage({ data, state, dispatch }) {
     });
   }, [id, data]);
 
+  // If an instance of no id being provided, sets filterProduct to that of stored ID.
   useEffect(() => {
     if (!id) {
       let storedId = localStorage.getItem('id');
@@ -45,6 +52,7 @@ export default function ProductPage({ data, state, dispatch }) {
     }
   }, [id, data]);
 
+  // Filters through the array, and sets a new array of filteredProducts if there are matching tags in the specific product and the remaining products of the array.
   useEffect(() => {
     let array = [];
     data.filter((product) => {
@@ -62,7 +70,9 @@ export default function ProductPage({ data, state, dispatch }) {
         marginY: 2,
       }}
       component='main'>
+      {/* MetaData */}
       <MetaData title={`Re:mote | ${filterProduct.title}`} description={`Re:mote | ${filterProduct.description}`} tags={filterProduct.tags.map((tag) => tag)} />
+      {/* Breadcrumbs Navigation*/}
       <BreadCrumbs product={filterProduct} />
       <Container
         sx={{
@@ -73,10 +83,12 @@ export default function ProductPage({ data, state, dispatch }) {
             md: 'repeat(3, 1fr)',
           },
         }}>
+        {/* Product Details*/}
         <Box sx={{ gridColumn: { md: '1 / 3', xs: '1 / 4' }, height: 'max-content', position: 'relative', overflow: 'hidden' }}>
           <ProductDetails data={filterProduct} />
           {filterProduct.discountedPrice !== filterProduct.price && <Sale product={filterProduct} />}
         </Box>
+        {/* Product Price, AddTo Cart and StoreInformation */}
         <Box
           sx={{
             gridColumn: { md: '3 / 4', xs: '1 / 4' },
@@ -92,6 +104,8 @@ export default function ProductPage({ data, state, dispatch }) {
         </Box>
       </Container>
       <Divider sx={{ marginY: 2 }} />
+
+      {/* Array of filtered items. */}
       <Box>
         <Container>
           <Typography variant='h6' component='h2'>

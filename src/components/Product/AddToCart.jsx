@@ -9,10 +9,16 @@ const StyledLink = styled(Link)`
   display: block;
 `;
 
+/**
+ * Adding to Cart component for product page.
+ * @param {*}
+ * @returns Price, add to cart interaction and cart link
+ */
 export function AddToCart({ data, dispatch, state }) {
   return (
     <>
       <Box sx={{ marginBottom: 1, backgroundColor: 'white.main', padding: 1, borderRadius: 0.5 }}>
+        {/* Product Price */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography>Price:</Typography>
           <Price product={data} position='initial' />
@@ -22,6 +28,8 @@ export function AddToCart({ data, dispatch, state }) {
           Free Shipping
         </Typography>
       </Box>
+
+      {/* Add to Cart Button */}
       <Button
         sx={{ borderRadius: 0, backgroundColor: 'primary.light', color: 'black.light' }}
         startIcon={<AddShoppingCartRoundedIcon />}
@@ -30,9 +38,10 @@ export function AddToCart({ data, dispatch, state }) {
         onClick={() => dispatch({ type: 'addProduct', payload: data })}>
         Add to Cart
       </Button>
-      {/* Display this if cart is not empty */}
+
+      {/* Display link to cart if cart is not empty */}
       {state.cart.length > 0 && (
-        <StyledLink to='/checkout'>
+        <StyledLink to='/cart'>
           <Button
             startIcon={<ShoppingBagIcon />}
             variant='contained'
