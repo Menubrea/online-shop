@@ -14,8 +14,8 @@ export function ShoppingCart({ state, dispatch }) {
     <>
       {isShown && state.cart.length > 0 && <CartModal state={state} dispatch={dispatch} isShown={isShown} setIsShown={setIsShown} />}
       {state.cart.length > 0 && (
-        <Fab aria-label='Cart' color='secondary' sx={{ position: 'fixed', bottom: 16, right: 16 }} onClick={() => setIsShown(true)}>
-          <Badge color='black' badgeContent={state.cart.reduce((acc, product) => acc + product.quantity, 0)} max={9}>
+        <Fab aria-label='Cart' color='primary' sx={{ position: 'fixed', bottom: 16, right: 16 }} onClick={() => setIsShown(true)}>
+          <Badge color='white' badgeContent={state.cart.reduce((acc, product) => acc + product.quantity, 0)} max={9}>
             <ShoppingCartIcon />
           </Badge>
         </Fab>

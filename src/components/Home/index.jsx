@@ -69,8 +69,11 @@ export function Home({ data, isLoading, isError, state, dispatch }) {
               marginY: 2,
               color: 'white.main',
               backgroundColor: 'black.light',
-              paddingY: 1,
-              textAlign: 'center',
+              width: 'fit-content',
+              paddingX: 2,
+              paddingY: 0.5,
+              marginX: 'auto',
+              borderRadius: 2,
             }}>
             {headline}
           </Typography>

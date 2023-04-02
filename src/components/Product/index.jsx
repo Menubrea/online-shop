@@ -116,7 +116,7 @@ export default function ProductPage({ data, state, dispatch }) {
           <Products data={filteredProducts} state={state} headerElement='h3' />
         ) : (
           <Container>
-            <Alert severity='info'>No Match found</Alert>
+            <Alert severity='error'>No Match found</Alert>
           </Container>
         )}
         <StyledLink to='/' sx={{ marginTop: 2 }}>

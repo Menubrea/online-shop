@@ -30,23 +30,14 @@ export function AddToCart({ data, dispatch, state }) {
       </Box>
 
       {/* Add to Cart Button */}
-      <Button
-        sx={{ borderRadius: 0, backgroundColor: 'primary.light', color: 'black.light' }}
-        startIcon={<AddShoppingCartRoundedIcon />}
-        fullWidth
-        variant='contained'
-        onClick={() => dispatch({ type: 'addProduct', payload: data })}>
+      <Button startIcon={<AddShoppingCartRoundedIcon />} fullWidth variant='contained' onClick={() => dispatch({ type: 'addProduct', payload: data })}>
         Add to Cart
       </Button>
 
       {/* Display link to cart if cart is not empty */}
       {state.cart.length > 0 && (
         <StyledLink to='/cart'>
-          <Button
-            startIcon={<ShoppingBagIcon />}
-            variant='contained'
-            sx={{ borderRadius: 0, backgroundColor: 'secondary.dark', color: 'white.light' }}
-            fullWidth>
+          <Button sx={{ marginTop: 1 }} color='secondary' startIcon={<ShoppingBagIcon />} variant='outlined' fullWidth>
             View Cart
           </Button>
         </StyledLink>

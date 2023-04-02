@@ -14,12 +14,12 @@ const StyledCard = styled(Card)`
   position: relative;
   background: rgb(255, 240, 235);
   background: linear-gradient(10deg, rgba(255, 240, 235, 0.3) 0%, rgba(249, 249, 249, 0.3) 100%);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   cursor: pointer;
-  height: 380px;
+  height: 390px;
 
   :hover {
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -78,20 +78,20 @@ export default function ProductCard({ data, headerElement }) {
           <LinkWrapper
             tabIndex={0}
             sx={{
-              backgroundColor: 'black.light',
-              color: 'white.light',
-              width: '100%',
-              bottom: 0,
+              color: 'black.light',
+              width: '90%',
+              bottom: 10,
+              left: '5%',
               paddingBottom: 0.5,
               textAlign: 'center',
               position: 'absolute',
               fontFamily: 'arbotek',
               fontWeight: 900,
               fontSize: 16,
-              borderBottom: 5,
-              borderColor: 'primary.light',
+              borderRadius: 1,
+              boxShadow: '0px 0px 5px 1px rgba(0, 0, 0, .05)',
               '&:hover': {
-                boxShadow: '0px 0px 20px 1px rgba(0, 0, 0, .2)',
+                backgroundColor: 'primary.light',
               },
             }}
             to={`/product/${product.id}`}>

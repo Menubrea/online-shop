@@ -50,7 +50,7 @@ export function Header(props) {
 
 export function Logo() {
   return (
-    <StyledLink to='/' sx={{ backgroundColor: 'black.light', padding: '0.3em .5em' }}>
+    <StyledLink to='/' sx={{ backgroundColor: 'black.light', padding: '0.3em .5em', borderRadius: 2 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
         <Box
           component='img'

@@ -1,6 +1,7 @@
 import { Paper, CardHeader, Box, Rating, Typography, Divider } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Carousel from 'react-material-ui-carousel';
 
 /**
  * Component for rendering reviews
@@ -9,7 +10,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
  */
 export function Reviews({ data }) {
   return (
-    <>
+    <Carousel autoPlay={false}>
       {data.reviews &&
         data.reviews.map((review, index) => {
           return (
@@ -27,7 +28,7 @@ export function Reviews({ data }) {
                 {/* Review Rating */}
                 {review.rating > 0 ? (
                   <Rating
-                    sx={{ color: 'primary.main', marginRight: 3 }}
+                    sx={{ color: 'primary.main', marginRight: 2 }}
                     size='small'
                     name='rating'
                     value={review.rating}
@@ -49,6 +50,6 @@ export function Reviews({ data }) {
             </Paper>
           );
         })}
-    </>
+    </Carousel>
   );
 }

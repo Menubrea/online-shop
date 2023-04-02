@@ -71,7 +71,7 @@ export function OnSaleItem({ item }) {
             sx={{
               padding: 0.5,
               paddingX: 1,
-              backgroundColor: 'secondary.light',
+              backgroundColor: 'primary.light',
               display: 'flex',
               justifyContent: 'space-between',
               borderRadius: 2,
@@ -107,7 +107,7 @@ export function OnSaleItem({ item }) {
               fontSize: 20,
               cursor: 'pointer',
               borderBottom: 5,
-              borderBottomColor: 'secondary.light',
+              borderBottomColor: 'primary.light',
               borderRadius: 2,
 
               '&:hover': {

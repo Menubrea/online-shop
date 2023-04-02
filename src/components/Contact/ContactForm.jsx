@@ -50,7 +50,7 @@ export function ContactForm() {
 
       {/* Content of Body */}
       <FormControl sx={{ display: 'block', marginTop: 2 }}>
-        <TextField variant='filled' color='secondary' fullWidth rows={5} multiline label='Your Message' id='body' {...register('body')} />
+        <TextField color='secondary' fullWidth rows={5} multiline label='Your Message' id='body' {...register('body')} />
         <FormHelperText>{errors.body?.message}</FormHelperText>
       </FormControl>
 
