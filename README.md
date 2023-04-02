@@ -8,6 +8,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is my first project using any JavaScript Frameworks. While `CRA` at this point in time discontinued, it has still served as a valuable learning platform for using React. In the brief below I've provided context for user stories and requirements provided by Noroff for our assignment.
 
+The API in use holds an array of 25 objects. With the following object model:
+
+```js
+const product = {
+  description: 'string',
+  discountedPrice: number,
+  id: 'string',
+  imageUrl: 'string',
+  price: number,
+  rating: number,
+  reviews: [
+    username: 'string',
+    description: 'string',
+    rating: number,
+  ],
+  tags: ['string'],
+  title: 'string',
+};
+```
+
+While not required, I've added filtering through a Select interface based on the value of tags, as well as an algorithm for filtering matching products in the product specific component. To save on networking, the application uses a single API request, and instead filters out the specific item based on matching id, rather than making a new request.
+
 ## Brief
 
 The API you are using for this brief is: https://api.noroff.dev/api/v1/online-shop
