@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 const StyledLink = styled(Link)`
   all: unset;
   cursor: pointer;
+  display: block;
 `;
 
 /**

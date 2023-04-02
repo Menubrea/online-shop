@@ -15,7 +15,7 @@ export function ShoppingCart({ state, dispatch }) {
       {isShown && state.cart.length > 0 && <CartModal state={state} dispatch={dispatch} isShown={isShown} setIsShown={setIsShown} />}
       {state.cart.length > 0 && (
         <Fab aria-label='Cart' color='secondary' sx={{ position: 'fixed', bottom: 16, right: 16 }} onClick={() => setIsShown(true)}>
-          <Badge badgeContent={state.cart.reduce((acc, product) => acc + product.quantity, 0)} color='black' max={9}>
+          <Badge color='black' badgeContent={state.cart.reduce((acc, product) => acc + product.quantity, 0)} max={9}>
             <ShoppingCartIcon />
           </Badge>
         </Fab>
@@ -56,7 +56,8 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
             borderRadius: 1,
           }}>
           <Button
-            variant='contained'
+            variant='outlined'
+            color='black'
             sx={{
               borderRadius: 0,
             }}
@@ -102,13 +103,11 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
             <Typography variant='body1'>Total:</Typography> <Typography variant='body2'>{state.total.toFixed(2)} kr</Typography>
           </Box>
           <Box sx={{ display: 'flex', marginTop: 1, gap: 1, justifyContent: 'right' }}>
-            <Button variant='contained' sx={{ backgroundColor: 'black.light', color: 'white.main' }} onClick={() => setIsShown(false)}>
+            <Button variant='outlined' color='secondary' onClick={() => setIsShown(false)}>
               Continue Shopping
             </Button>
             <StyledLink to='/cart'>
-              <Button variant='contained' sx={{ backgroundColor: 'secondary.dark', color: 'white.main' }}>
-                View Cart
-              </Button>
+              <Button variant='contained'>View Cart</Button>
             </StyledLink>
           </Box>
         </StyledBox>

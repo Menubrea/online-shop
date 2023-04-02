@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Container, Divider } from '@mui/material';
 import { ContactForm } from './ContactForm';
 import { Faq } from './Faq';
 import { MetaData } from '../MetaData';
@@ -18,9 +18,10 @@ export function Contact() {
       {/* Breadcrumbs Navigation */}
       <BreadCrumbs />
       {/* Contact Header */}
-      <Typography variant='h4' component='h1' sx={{ textAlign: 'center' }}>
+      <Typography variant='h4' component='h1' sx={{ textAlign: 'center', marginBottom: 2 }}>
         Contact Us
       </Typography>
+      <Divider sx={{ marginBottom: 1 }} />
       {/* Product Image */}
       <Box sx={{ display: 'grid', gridTemplateColumns: { sm: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' } }}>
         <Faq />
