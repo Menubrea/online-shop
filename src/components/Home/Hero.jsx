@@ -1,6 +1,6 @@
 import hero from '../../assets/hero.png';
 // import { useState, useEffect } from 'react';
-import { Box, styled, Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 
 /**
  * Component for rendering Hero
