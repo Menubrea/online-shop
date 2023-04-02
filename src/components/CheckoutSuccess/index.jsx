@@ -10,7 +10,7 @@ const StyledMain = styled(Box)`
   display: grid;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh);
+  min-height: 77.5vh;
   padding: 2em;
 `;
 
@@ -22,8 +22,8 @@ const UnLink = styled(Link)`
 const StyledContainer = styled(Container)`
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
   padding: 1em;
+  border-radius: 0.5em;
   background-color: #ffffff;
-  border-radius: 1em;
 `;
 
 const StyledBox = styled(Box)`
@@ -40,7 +40,6 @@ const StyledBox = styled(Box)`
 `;
 
 const EaseOutBox = styled(Box)`
-  padding: 2em;
   animation: hide 5.1s ease-in;
 
   @keyframes hide {
@@ -93,7 +92,7 @@ export function CheckoutSuccess({ dispatch }) {
           <StyledBox>
             {/* Render this content while isProcessing is false */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, marginX: 'auto', width: 'fit-content', marginBottom: 1 }}>
-              <Image height={60} width={60} sx={{ borderRadius: 100 }} src={checkmark} title={'checkmark'} alt={'checkmark'} />
+              <Image height={60} width={60} sx={{ borderRadius: 100 }} src={checkmark} title={'checkmark'} alt={'checkmark'} duration={500} />
               <Typography variant='h6'>Success!</Typography>
             </Box>
             <Divider sx={{ marginBottom: 1 }} />

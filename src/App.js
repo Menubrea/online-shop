@@ -51,8 +51,8 @@ function App() {
           <Route path='/product/:id' element={<ProductPage data={data} state={state} dispatch={dispatch} />} />
           <Route path='/cart' element={<Cart data={data} state={state} dispatch={dispatch} />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/checkoutSuccess' element={<CheckoutSuccess dispatch={dispatch} />} />
         </Route>
-        <Route path='/checkoutSuccess' element={<CheckoutSuccess dispatch={dispatch} />} />
       </Routes>
     </ThemeProvider>
   );
