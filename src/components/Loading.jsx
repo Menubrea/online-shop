@@ -13,7 +13,7 @@ export function Loading() {
           Re:mote
         </Typography>
         <Divider />
-        <Image src={loading} height={200} width={200} />
+        <Image src={loading} height={200} width={200} duration={100} />
       </Box>
     </Container>
   );
