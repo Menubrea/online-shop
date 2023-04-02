@@ -1,6 +1,6 @@
 # Online Shop - JavaScript FrameWorks CA
 
-[!alt-image](/src/assets/hero.png)
+[!alt](/src/assets/hero.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

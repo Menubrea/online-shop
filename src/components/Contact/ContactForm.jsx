@@ -29,7 +29,7 @@ export function ContactForm() {
   } = useForm({ resolver: yupResolver(schema) });
 
   return (
-    <Box sx={{ padding: 1 }} onSubmit={handleSubmit(onSubmit)} component='form'>
+    <Box sx={{ padding: 1, marginY: { sm: 2, md: 0 } }} onSubmit={handleSubmit(onSubmit)} component='form'>
       {/* Full Name */}
       <FormControl sx={{ display: 'block' }}>
         <TextField color='secondary' fullWidth label='Full Name' id='fullName' {...register('fullName')} />
@@ -50,7 +50,7 @@ export function ContactForm() {
 
       {/* Content of Body */}
       <FormControl sx={{ display: 'block', marginTop: 2 }}>
-        <TextField color='secondary' fullWidth rows={5} multiline label='Your Message' id='body' {...register('body')} />
+        <TextField variant='filled' color='secondary' fullWidth rows={5} multiline label='Your Message' id='body' {...register('body')} />
         <FormHelperText>{errors.body?.message}</FormHelperText>
       </FormControl>
 
