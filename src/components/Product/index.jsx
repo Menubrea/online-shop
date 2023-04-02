@@ -1,4 +1,4 @@
-import { Box, Container, Typography, styled, Divider, Button } from '@mui/material';
+import { Box, Container, Typography, styled, Divider, Button, Alert } from '@mui/material';
 import { Reviews } from './Reviews';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -101,12 +101,11 @@ export default function ProductPage({ data, state, dispatch }) {
         {filteredProducts.length > 0 ? (
           <Products data={filteredProducts} state={state} headerElement='h3' />
         ) : (
-          <Box sx={{ margin: '0 auto', width: 'fit-content', padding: '.2em .5em', borderRadius: 2, backgroundColor: 'black.light', color: 'white.light' }}>
-            {' '}
-            No matches found{' '}
-          </Box>
+          <Container>
+            <Alert severity='info'>No Match found</Alert>
+          </Container>
         )}
-        <StyledLink to='/'>
+        <StyledLink to='/' sx={{ marginTop: 2 }}>
           <Button variant='contained' color='white'>
             Return Home
           </Button>

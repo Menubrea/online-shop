@@ -14,15 +14,12 @@ const StyledCard = styled(Card)`
   position: relative;
   background: rgb(255, 240, 235);
   background: linear-gradient(10deg, rgba(255, 240, 235, 0.3) 0%, rgba(249, 249, 249, 0.3) 100%);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  outline: 0.5px solid rgba(0, 0, 0, 0.5);
-  border-radius: 0.5em;
   height: 380px;
-  transition: all 200ms ease-in-out;
 
   :hover {
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
-    transform: scale(1.02);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -92,7 +89,7 @@ export default function ProductCard({ data, headerElement }) {
               },
             }}
             to={`/product/${product.id}`}>
-            See Item
+            View Product
           </LinkWrapper>
         </StyledCard>
       ))}

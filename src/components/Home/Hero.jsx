@@ -32,7 +32,7 @@ export default function Hero() {
   // }, [isShown]);
 
   return (
-    <Container sx={{ position: 'relative' }}>
+    <Container sx={{ position: 'relative', display: { xs: 'none', sm: 'block' } }}>
       <StyledBox sx={{ marginTop: 2 }}>
         <Image src={hero} height='fit-content' maxHeight={500} fit='contain' title='page-hero' duration={100} sx={{ borderRadius: 5 }} />
       </StyledBox>

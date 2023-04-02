@@ -22,9 +22,9 @@ const theme = createTheme({
       light: '#ffd6c9',
     },
     secondary: {
-      main: '#72A0B3',
-      dark: '#4f707d',
-      light: '#8eb3c2',
+      main: '#375C67',
+      dark: '#32545D',
+      light: '#C7D9E1',
     },
     white: {
       main: '#F5F5F5',
@@ -34,7 +34,7 @@ const theme = createTheme({
     black: {
       main: '#242424',
       dark: '#0D0D0D',
-      light: '#636363',
+      light: '#424242',
     },
   },
   typography: {

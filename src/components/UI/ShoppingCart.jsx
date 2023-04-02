@@ -11,7 +11,7 @@ export function ShoppingCart({ state, dispatch }) {
       {isShown && state.cart.length > 0 && <CartModal state={state} dispatch={dispatch} isShown={isShown} setIsShown={setIsShown} />}
       {state.cart.length > 0 && (
         <Fab aria-label='Cart' color='secondary' sx={{ position: 'fixed', bottom: 16, right: 16 }} onClick={() => setIsShown(true)}>
-          <Badge badgeContent={state.cart.reduce((acc, product) => acc + product.quantity, 0)} color='white' max={9}>
+          <Badge badgeContent={state.cart.reduce((acc, product) => acc + product.quantity, 0)} color='black' max={9}>
             <ShoppingCartIcon />
           </Badge>
         </Fab>
@@ -49,8 +49,6 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
           <Button
             variant='contained'
             sx={{
-              backgroundColor: 'primary.dark',
-              color: 'white.light',
               borderRadius: 0,
             }}
             fullWidth
@@ -70,7 +68,7 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
                   titleTypographyProps={{
                     fontWeight: 700,
                     color: 'black.light',
-                    fontSize: 18,
+                    fontSize: 16,
                     textAlign: 'right',
                   }}
                 />
@@ -92,7 +90,7 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-            <Typography variant='body1'>Total:</Typography> <Typography variant='body2'>{state.total} kr</Typography>
+            <Typography variant='body1'>Total:</Typography> <Typography variant='body2'>{state.total.toFixed(2)} kr</Typography>
           </Box>
           <Box sx={{ display: 'flex', marginTop: 1, gap: 1, justifyContent: 'right' }}>
             <Button variant='contained' sx={{ backgroundColor: 'black.light', color: 'white.main' }} onClick={() => setIsShown(false)}>
