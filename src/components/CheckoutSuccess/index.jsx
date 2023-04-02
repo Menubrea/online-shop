@@ -85,17 +85,15 @@ export function CheckoutSuccess({ dispatch }) {
       {/* Render this content while isProcessing is true */}
       <StyledContainer>
         {isProcessing ? (
-          <EaseOutBox sx={{ display: 'flex', alignItems: 'center', gap: 2, position: 'relative', overflow: 'hidden' }}>
-            <Image height={80} width={80} sx={{ borderRadius: 100 }} src={loading} />
-            <Typography sx={{ marginRight: 2 }} variant='h6'>
-              Processing your order.
-            </Typography>
+          <EaseOutBox sx={{ display: 'flex', alignItems: 'center', gap: 3, position: 'relative', overflow: 'hidden' }}>
+            <Image height={60} width={60} sx={{ borderRadius: 100 }} src={loading} title={'loading'} alt={'loading'} />
+            <Typography variant='h6'>Processing.</Typography>
           </EaseOutBox>
         ) : (
           <StyledBox>
             {/* Render this content while isProcessing is false */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, marginX: 'auto', width: 'fit-content', marginBottom: 1 }}>
-              <Image height={80} width={80} sx={{ borderRadius: 100 }} src={checkmark} />
+              <Image height={60} width={60} sx={{ borderRadius: 100 }} src={checkmark} title={'checkmark'} alt={'checkmark'} />
               <Typography variant='h6'>Success!</Typography>
             </Box>
             <Divider sx={{ marginBottom: 1 }} />
@@ -103,8 +101,7 @@ export function CheckoutSuccess({ dispatch }) {
               Order number: 20023388123
             </Typography>
             <Typography variant='body2'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan quam nec consectetur iaculis. Sed scelerisque odio sit amet purus
-              iaculis, et facilisis arcu mollis. Pellentesque velit odio, convallis et.{' '}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan quam nec consectetur iaculis. Sed scelerisque odio sit amet purus.
             </Typography>
             <UnLink to='/'>
               <Button sx={{ marginTop: 1 }} variant='contained' fullWidth>

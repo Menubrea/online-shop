@@ -1,4 +1,5 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import { Badge, Box, CardHeader, Fab, Typography, CardContent, Divider, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useState } from 'react';
@@ -56,10 +57,10 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
             borderRadius: 1,
           }}>
           <Button
-            variant='outlined'
+            startIcon={<DeleteForeverRoundedIcon />}
             color='black'
             sx={{
-              borderRadius: 0,
+              marginBottom: 1,
             }}
             fullWidth
             onClick={() => dispatch({ type: 'clearCart' })}>
@@ -76,7 +77,6 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
                   title={product.title}
                   sx={{ margin: 0, paddingTop: 1, paddingBottom: 0 }}
                   titleTypographyProps={{
-                    fontWeight: 700,
                     color: 'black.light',
                     fontSize: 16,
                     textAlign: 'right',

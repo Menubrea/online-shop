@@ -32,25 +32,25 @@ export function ContactForm() {
     <Box sx={{ padding: 1, marginY: { sm: 2, md: 0 } }} onSubmit={handleSubmit(onSubmit)} component='form'>
       {/* Full Name */}
       <FormControl sx={{ display: 'block' }}>
-        <TextField color='secondary' fullWidth label='Full Name' id='fullName' {...register('fullName')} />
+        <TextField size='small' color='secondary' fullWidth label='Full Name' id='fullName' {...register('fullName')} />
         <FormHelperText>{errors.fullName?.message}</FormHelperText>
       </FormControl>
 
       {/* Email */}
       <FormControl sx={{ display: 'block', marginTop: 2 }}>
-        <TextField color='secondary' fullWidth label='Email' id='email' {...register('email')} />
+        <TextField size='small' color='secondary' fullWidth label='Email' id='email' {...register('email')} />
         <FormHelperText>{errors.email?.message}</FormHelperText>
       </FormControl>
 
       {/* Subject */}
       <FormControl sx={{ display: 'block', marginTop: 2 }}>
-        <TextField color='secondary' fullWidth label='Subject' id='subject' {...register('subject')} />
+        <TextField size='small' color='secondary' fullWidth label='Subject' id='subject' {...register('subject')} />
         <FormHelperText>{errors.subject?.message}</FormHelperText>
       </FormControl>
 
       {/* Content of Body */}
       <FormControl sx={{ display: 'block', marginTop: 2 }}>
-        <TextField color='secondary' fullWidth rows={5} multiline label='Your Message' id='body' {...register('body')} />
+        <TextField size='small' color='secondary' fullWidth rows={5} multiline label='Your Message' id='body' {...register('body')} />
         <FormHelperText>{errors.body?.message}</FormHelperText>
       </FormControl>
 

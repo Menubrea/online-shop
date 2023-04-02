@@ -8,7 +8,7 @@ import { Logo } from '../UI/Header';
  */
 export function Faq() {
   return (
-    <Box sx={{ padding: 1, borderRadius: 1 }}>
+    <Box sx={{ padding: 1, borderRadius: 1, backgroundColor: 'white.main' }}>
       <Logo />
       <Typography variant='body1' sx={{ padding: 1, marginY: 1 }}>
         You can always contact us, no matter your inquiry, but perhaps you find what you're looking for in our provided FAQ below:

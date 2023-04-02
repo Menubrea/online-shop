@@ -11,7 +11,7 @@ import RedditIcon from '@mui/icons-material/Reddit';
  */
 export function Footer() {
   return (
-    <Box component='footer' sx={{ backgroundColor: 'white.main', paddingY: 2, boxShadow: '0 0 10px 1px rgba(0, 0, 0, .4)' }}>
+    <Box component='footer' sx={{ backgroundColor: 'white.main', paddingY: 2 }}>
       <Typography variant='body2' sx={{ textAlign: 'center', marginBottom: 2 }}>
         All Rights Reserved | Menubrea
       </Typography>

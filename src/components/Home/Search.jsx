@@ -8,7 +8,7 @@ const UnLink = styled(Link)`
   display: block;
   cursor: pointer;
   :hover {
-    outline: 1px dashed #4f4f4f;
+    outline: 1px solid #4f4f4f;
   }
 `;
 

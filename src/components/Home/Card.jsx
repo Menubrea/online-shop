@@ -85,13 +85,12 @@ export default function ProductCard({ data, headerElement }) {
               paddingBottom: 0.5,
               textAlign: 'center',
               position: 'absolute',
-              fontFamily: 'arbotek',
-              fontWeight: 900,
               fontSize: 16,
               borderRadius: 1,
               boxShadow: '0px 0px 5px 1px rgba(0, 0, 0, .05)',
+              backgroundColor: 'primary.light',
               '&:hover': {
-                backgroundColor: 'primary.light',
+                backgroundColor: 'white.light',
               },
             }}
             to={`/product/${product.id}`}>
