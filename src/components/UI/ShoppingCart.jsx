@@ -107,7 +107,7 @@ export function CartModal({ state, dispatch, isShown, setIsShown }) {
             </Button>
             <StyledLink to='/cart'>
               <Button variant='contained' sx={{ backgroundColor: 'secondary.dark', color: 'white.main' }}>
-                Checkout
+                View Cart
               </Button>
             </StyledLink>
           </Box>

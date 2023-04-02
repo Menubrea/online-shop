@@ -12,7 +12,7 @@ export function Layout({ state, dispatch }) {
   return (
     <>
       <Header />
-      {pathname !== '/checkout' && <ShoppingCart state={state} dispatch={dispatch} />}
+      {pathname !== '/cart' && <ShoppingCart state={state} dispatch={dispatch} />}
       <Outlet />
       <Footer />
     </>
